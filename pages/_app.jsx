@@ -1,3 +1,4 @@
+import "swiper/css/bundle";
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import { StyledEngineProvider } from '@mui/material/styles';

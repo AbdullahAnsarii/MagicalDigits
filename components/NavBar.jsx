@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,44 +7,59 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Contact Us', 'Careers'];
 
 const NavBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [background, setBackground] = useState("#f3f3f3bf");
+  const [linkColor, setLinkColor] = useState("black");
+  const [padding, setPadding] = useState("10px");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 90;
+      if (show) {
+        setBackground("#f3f3f3bf");
+        setLinkColor("white");
+        setPadding("0px")
+      } else {
+        setBackground("transparent");
+        setLinkColor("black");
+        setPadding("10px")
+      }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    // return () => {
+    //   document.removeEventListener("scroll", handleScroll);
+    // };
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" sx={{
+      padding: padding,
+      backgroundColor: background,
+      transition: "0.4s"
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            color="blue"
+            sx={{ display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            <img src="/mdlogo.png" height="10%" width="10%" />
+            {/* <h6>Magical Digits</h6> */}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -55,6 +70,7 @@ const NavBar = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ color: "blue" }}
             >
               <MenuIcon />
             </IconButton>
@@ -84,53 +100,20 @@ const NavBar = () => {
             </Menu>
           </Box>
           <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{ justifyContent: "center", display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            <img src="/mdlogo.png" height="10%" width="10%" />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'blue', display: 'flex' }}
               >
                 {page}
               </Button>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
