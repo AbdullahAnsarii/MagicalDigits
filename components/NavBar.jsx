@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTheme } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,21 +14,23 @@ import MenuItem from '@mui/material/MenuItem';
 const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Contact Us', 'Careers'];
 
 const NavBar = () => {
+  const theme = useTheme();
+  console.log(theme)
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [background, setBackground] = useState("#f3f3f3bf");
-  const [linkColor, setLinkColor] = useState("black");
+  // const [background, setBackground] = useState("#f3f3f3bf");
+  // const [linkColor, setLinkColor] = useState("black");
   const [padding, setPadding] = useState("10px");
 
   useEffect(() => {
     const handleScroll = () => {
       const show = window.scrollY > 90;
       if (show) {
-        setBackground("#f3f3f3bf");
-        setLinkColor("white");
+        // setBackground("#f3f3f3bf");
+        // setLinkColor("white");
         setPadding("0px")
       } else {
-        setBackground("transparent");
-        setLinkColor("black");
+        // setBackground("transparent");
+        // setLinkColor("black");
         setPadding("10px")
       }
     };
@@ -49,19 +52,17 @@ const NavBar = () => {
   return (
     <AppBar position="sticky" sx={{
       padding: padding,
-      backgroundColor: background,
-      transition: "0.4s"
+      transition: "0.4s",
+      backgroundColor: '#0000ff00'
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            color="blue"
             sx={{ display: { xs: 'none', md: 'flex' } }}
           >
-            <img src="/mdlogo.png" height="10%" width="10%" />
-            {/* <h6>Magical Digits</h6> */}
-          </Typography>
+            <img src="/mdlogo.png" width='50vh' />
 
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -69,8 +70,6 @@ const NavBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
-              sx={{ color: "blue" }}
             >
               <MenuIcon />
             </IconButton>
@@ -102,14 +101,14 @@ const NavBar = () => {
           <Typography
             sx={{ justifyContent: "center", display: { xs: 'flex', md: 'none' } }}
           >
-            <img src="/mdlogo.png" height="10%" width="10%" />
+            <img src="/mdlogo.png" width='50vh' />
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'blue', display: 'flex' }}
+                sx={{ my: 2, display: 'flex' }}
               >
                 {page}
               </Button>
