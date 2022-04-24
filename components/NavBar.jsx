@@ -10,10 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import styles from '../styles/Navbar.module.scss'
+import WorkIcon from '@mui/icons-material/Work';
 
-const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Contact Us', 'Careers'];
 
 const NavBar = () => {
+  const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Contact Us', 'Careers'];
   const theme = useTheme();
   console.log(theme)
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -52,17 +54,29 @@ const NavBar = () => {
   return (
     <AppBar position="sticky" sx={{
       padding: padding,
-      transition: "0.4s",
-      backgroundColor: '#0000ff00'
+      transition: '0.4s',
+      backgroundColor: '#f3f3f3bf'
     }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            sx={{ display: { xs: 'none', md: 'flex' } }}
-          >
+        <Toolbar className={styles.navbar} disableGutters>
+          {/* desktop */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <img src="/mdlogo.png" width='50vh' />
+          </Box>
 
-          </Typography>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+              startIcon={<WorkIcon />}
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, display: 'flex', textTransform: 'none' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+          {/* mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -103,17 +117,7 @@ const NavBar = () => {
           >
             <img src="/mdlogo.png" width='50vh' />
           </Typography>
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: 'flex' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+          
         </Toolbar>
       </Container>
     </AppBar>

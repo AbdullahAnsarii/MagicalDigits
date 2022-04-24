@@ -13,23 +13,30 @@ const lightTheme = createTheme({
       typography: {
         h5: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         button: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         body2: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         body1: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         subtitle2: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         subtitle1: {
           fontFamily: 'Dosis',
+          color: '#606f7b'
         },
         fontFamily: 'Dosis',
+        color: '#606f7b'
       },
       overrides: {
         MuiAppBar: {

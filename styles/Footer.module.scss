@@ -1,0 +1,40 @@
+$primary: #00478F;
+$secondary: #FF5D00;
+.footer {
+    display: flex;
+    flex: 1;
+    padding: 2rem;
+    border-top: 1px solid #969696;
+    justify-content: space-around;
+    align-items: center;
+}
+.iconList{
+    list-style-type: none;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+}
+.iconListItem{
+    display: flex;
+}
+.iconListItem:hover{
+    display: flex;
+    color: $secondary;
+}
+.icon {
+    color: $primary;
+    vertical-align: bottom;
+}
+.icon:hover {
+    color: $secondary;
+    vertical-align: bottom;
+}
+@media (max-width: 400px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 2rem;
+        border-top: 1px solid #969696;
+    }
+  }

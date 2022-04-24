@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTheme } from '@mui/styles';
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,16 +12,17 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function Home() {
+  const theme = useTheme();
   return (
     <>
       <Swiper
-      // style={{
-      //   position: 'absolute',
-      //   top: 0,
-      //   left: 0,
-      //   zIndex: -1,
-      //   width: "100%"
-      // }}
+        // style={{
+        //   position: 'absolute',
+        //   top: 0,
+        //   left: 0,
+        //   zIndex: -1,
+        //   width: "100%"
+        // }}
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -34,7 +36,7 @@ export default function Home() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper">
         <SwiperSlide>
-          <h1 style={{position: 'absolute', top: '30%', left: '20%', color: 'white', fontFamily: 'monospace', fontSize: '10vw'}} >Welcome!</h1>
+          <h1 style={{ position: 'absolute', top: '30%', left: '20%', color: 'white', fontFamily: 'monospace', fontSize: '10vw' }} >Welcome!</h1>
           <img src='/1.png' height='50%' width='100%' />
         </SwiperSlide>
         <SwiperSlide><img src='/2.png' height='100%' width='100%' /> </SwiperSlide>
@@ -48,58 +50,83 @@ export default function Home() {
 
         <main className={styles.main}>
 
-          <h1 className={styles.title}>
+          {/* <h1 className={styles.title}>
             Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
+          </h1> */}
 
-          <p className={styles.description}>
-            Get started by editing{' '}
-            <code className={styles.code}>pages/index.js</code>
-          </p>
+          <h6 className={styles.description}>
+            The complete software development cycle simply managed for you.
+          </h6>
 
+          <p>Explore What <b style={{ color: theme.palette.primary.main }}>Magical Digits</b> Can Do For You</p>
           <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Documentation &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
+          <a className={styles.card1} href="#">
+              <h3>Innovation</h3>
+              <p className={styles.small}>
+                We create products that are used by small and big businesses all around the globe.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
             </a>
 
-            <a href="https://nextjs.org/learn" className={styles.card}>
-              <h2>Learn &rarr;</h2>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <a className={styles.card1} href="#">
+              <h3>Team Augmentation</h3>
+              <p className={styles.small}>
+              We help you beat the competition by accelerating your digital journey through quicker software delivery.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
             </a>
 
-            <a
-              href="https://github.com/vercel/next.js/tree/canary/examples"
-              className={styles.card}
-            >
-              <h2>Examples &rarr;</h2>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <a className={styles.card1} href="#">
+              <h3>Software Development</h3>
+              <p className={styles.small}>
+                We engineer high performing software solution using all the latest tools.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
             </a>
 
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-            >
-              <h2>Deploy &rarr;</h2>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
+            <a className={styles.card1} href="#">
+              <h3>Digital Design</h3>
+              <p className={styles.small}>
+              We build interactive designs that are beyond amazing in order to make your business stand out.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
+            </a>
+            <a className={styles.card1} href="#">
+              <h3>Modernization</h3>
+              <p className={styles.small}>
+                We have extensive expertise in migrating softwares built upon legacy tools to modern tools.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
+            </a>
+            <a className={styles.card1} href="#">
+              <h3>Quality Assurance</h3>
+              <p className={styles.small}>
+                We test every aspect of software to give you an end product that is dependable.</p>
+              <div className={styles.goCorner} href="#">
+                <div className={styles.goArrow}>
+                &rarr;
+                </div>
+              </div>
             </a>
           </div>
         </main>
 
-        <footer className={styles.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <span className={styles.logo}>
-              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            </span>
-          </a>
-        </footer>
+        
       </div>
     </>
   )
