@@ -1,46 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useTheme } from '@mui/styles';
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-// import "./styles.css";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import Carousel from '../components/Carousel';
 
 export default function Home() {
-  const theme = useTheme();
   return (
     <>
-      <Swiper
-        // style={{
-        //   position: 'absolute',
-        //   top: 0,
-        //   left: 0,
-        //   zIndex: -1,
-        //   width: "100%"
-        // }}
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper">
-        <SwiperSlide>
-          <h1 style={{ position: 'absolute', top: '30%', left: '20%', color: 'white', fontFamily: 'monospace', fontSize: '10vw' }} >Welcome!</h1>
-          <img src='/1.png' height='50%' width='100%' />
-        </SwiperSlide>
-        <SwiperSlide><img src='/2.png' height='100%' width='100%' /> </SwiperSlide>
-      </Swiper>
+      <Carousel />
       <div className={styles.container}>
         <Head>
           <title>Magical Digits</title>
@@ -50,15 +15,11 @@ export default function Home() {
 
         <main className={styles.main}>
 
-          {/* <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1> */}
-
           <h6 className={styles.description}>
             The complete software development cycle simply managed for you.
           </h6>
 
-          <p>Explore What <b style={{ color: theme.palette.primary.main }}>Magical Digits</b> Can Do For You</p>
+          <p>Explore What <b>Magical Digits</b> Can Do For You</p>
           <div className={styles.grid}>
           <a className={styles.card1} href="#">
               <h3>Innovation</h3>

@@ -26,7 +26,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 90;
+      const show = window.scrollY > 10;
       if (show) {
         setPadding("0px");
         setFontSize("0.9em");
