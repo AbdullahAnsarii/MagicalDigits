@@ -1,0 +1,11 @@
+$primary: #00478F;
+$secondary: #FF5D00;
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+    color: $primary;
+    align-self: center;
+}

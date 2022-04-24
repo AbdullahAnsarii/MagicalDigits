@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/styles';
+import Image from 'next/image';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,28 +11,32 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import styles from '../styles/Navbar.module.scss'
 
-const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Contact Us', 'Careers'];
 
 const NavBar = () => {
+  const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Careers'];
   const theme = useTheme();
   console.log(theme)
   const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [background, setBackground] = useState("#f3f3f3bf");
-  // const [linkColor, setLinkColor] = useState("black");
   const [padding, setPadding] = useState("10px");
+  const [fontSize, setFontSize] = useState("1em");
+  const [imageWidth, setImageWidth] = useState("80vh");
+  const [imageHeight, setImageHeight] = useState("50vh");
 
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 90;
+      const show = window.scrollY > 10;
       if (show) {
-        // setBackground("#f3f3f3bf");
-        // setLinkColor("white");
-        setPadding("0px")
+        setPadding("0px");
+        setFontSize("0.9em");
+        setImageWidth("50vh");
+        setImageHeight("30vh");
       } else {
-        // setBackground("transparent");
-        // setLinkColor("black");
-        setPadding("10px")
+        setPadding("10px");
+        setFontSize("1em");
+        setImageWidth("80vh");
+        setImageHeight("50vh");
       }
     };
 
@@ -52,17 +57,42 @@ const NavBar = () => {
   return (
     <AppBar position="sticky" sx={{
       padding: padding,
-      transition: "0.4s",
-      backgroundColor: '#0000ff00'
+      transition: '0.8s',
+      backgroundColor: '#f3f3f3bf'
     }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            sx={{ display: { xs: 'none', md: 'flex' } }}
-          >
-            <img src="/mdlogo.png" width='50vh' />
+        <Toolbar className={styles.navbar} disableGutters>
+          {/* desktop */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Image src="/mdlogo.png" width={imageWidth} height={imageHeight} />
+            <Typography sx={{ fontSize: fontSize, fontWeight: 'bold', color: '#00478F;' }} className={styles.heading} >
+              Magical Digits
+            </Typography>
+          </Box>
 
-          </Typography>
+          <Box className={styles.nav} sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'end' }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                href={`/${page.toLowerCase().replace(" ", "")}`}
+                sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Button
+              key='Contact us'
+              href='contactus'
+              variant="outlined"
+              color="secondary"
+              sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+            >
+              Contact us
+            </Button>
+          </Box>
+          {/* mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -103,17 +133,7 @@ const NavBar = () => {
           >
             <img src="/mdlogo.png" width='50vh' />
           </Typography>
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: 'flex' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
