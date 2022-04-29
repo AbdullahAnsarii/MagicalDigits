@@ -12,6 +12,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import styles from '../styles/Navbar.module.scss'
+import { Chip } from '@mui/material';
 
 
 const NavBar = () => {
@@ -80,6 +81,35 @@ const NavBar = () => {
                 {page}
               </Button>
             ))}
+
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              // anchorOrigin={{
+              //   vertical: 'bottom',
+              //   horizontal: 'left',
+              // }}
+              // keepMounted
+              // transformOrigin={{
+              //   vertical: 'top',
+              //   horizontal: 'left',
+              // }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'flex', md: 'flex' },
+              }}
+            >
+              <MenuItem><a href="/services/web">Web Development</a></MenuItem>
+              <MenuItem><a href='/services/desktop'>Desktop Development</a></MenuItem>
+              <MenuItem><a href='/services/digitaldesign'>Digital Design</a></MenuItem>
+              <MenuItem><a href="/services/mobile" >Mobile Development <Chip size="small" label="new" color="secondary" /></a></MenuItem>
+            </Menu>
+            <Button
+              onClick={handleOpenNavMenu}
+              sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+            >Services
+            </Button>
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Button

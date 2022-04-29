@@ -73,16 +73,16 @@ const Clients = ({ webClients }) => {
                     <>
                         <Stack sx={{ justifyContent: "center", alignItems: "center", marginBottom: "2vw" }} direction="row" spacing={2}>
                             <span><b className={styles.stats}>750+</b> Websites</span>
-                            <span><b className={styles.stats}>500+</b> Brands</span>
+                            <span><b className={styles.stats}>50+</b> Brands</span>
                             <span><b className={styles.stats}>20+</b> Years</span>
                         </Stack>
-                        <Grid sx={{ justifyContent: "center", alignItems: "center" }} container spacing={3}>
+                        <Grid sx={{ justifyContent: "center", alignItems: "center", marginBottom: "2vw"  }} container spacing={3}>
                             {webClients.map((webClient, index) => (
                                 <Grid item key={index} >
 
                                     <a target="_blank" key={index} className={styles.cell} href={webClient.link}>
-                                        <Paper className={styles.client} elevation={12}>
-                                            <img src={webClient.logo} width="200vw" />
+                                        <Paper sx={{padding: '0.5vw', height: '8.5vw'}} className={styles.client} elevation={6}>
+                                            <img className={styles.image} src={webClient.logo} width="200vw" />
                                         </Paper>
                                     </a>
 

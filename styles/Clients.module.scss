@@ -22,6 +22,7 @@ $secondary: #FF5D00;
 }
 
 .client:hover {
+  padding: 0.5vw;
   transform: scale(1.15);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   transition: 0.4s;
@@ -50,4 +51,10 @@ $secondary: #FF5D00;
 .stats:hover {
   font-size: 6vw;
   color: $secondary;
+}
+
+.image {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }

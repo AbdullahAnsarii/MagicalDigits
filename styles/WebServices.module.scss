@@ -1,0 +1,28 @@
+.title,
+.description {
+    text-align: center;
+}
+
+.description {
+    margin: 4rem 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+.heading {
+    position: absolute;
+    top: 25vw;
+    left: 25vw;
+    font-size: 8vw;
+    color: rgba(255, 93, 0, 0.7);
+}
+
+@media (max-width: 600px) {
+    .heading {
+        position: absolute;
+        top: 30vw;
+        left: 25vw;
+        font-size: 8vw;
+        color: rgba(255, 93, 0, 0.7);
+    }
+}
