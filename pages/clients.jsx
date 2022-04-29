@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Clients.module.scss'
 import Image from 'next/image'
-import { Container, Box, Tabs, Tab, TabPanel, Grid, Paper } from '@mui/material'
+import { Container, Box, Tabs, Tab, TabPanel, Grid, Paper, Stack } from '@mui/material'
 import { useState } from 'react'
 
 export const getStaticProps = () => {
@@ -69,19 +69,27 @@ const Clients = ({ webClients }) => {
                     </Tabs>
                 </Box>
 
-                <Grid sx={{justifyContent: "center", alignItems: "center"}} container spacing={3}>
-                    {webClients.map((webClient, index) => (
-                        <Grid item key={index}>
+                {(value == "one") &&
+                    <>
+                        <Stack sx={{ justifyContent: "center", alignItems: "center", marginBottom: "2vw" }} direction="row" spacing={2}>
+                            <span><b className={styles.stats}>750+</b> Websites</span>
+                            <span><b className={styles.stats}>500+</b> Brands</span>
+                            <span><b className={styles.stats}>20+</b> Years</span>
+                        </Stack>
+                        <Grid sx={{ justifyContent: "center", alignItems: "center" }} container spacing={3}>
+                            {webClients.map((webClient, index) => (
+                                <Grid item key={index} >
 
-                            <a target="_blank" key={index} className={styles.cell} href={webClient.link}>
-                                <Paper className={styles.client} elevation={12}>
-                                    <img src={webClient.logo} width="240vw" />
-                                </Paper>
-                            </a>
+                                    <a target="_blank" key={index} className={styles.cell} href={webClient.link}>
+                                        <Paper className={styles.client} elevation={12}>
+                                            <img src={webClient.logo} width="200vw" />
+                                        </Paper>
+                                    </a>
 
+                                </Grid>
+                            ))}
                         </Grid>
-                    ))}
-                </Grid>
+                    </>}
 
             </Container>
         </>
