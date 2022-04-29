@@ -41,7 +41,7 @@ const Footer = () => {
                     </li>
 
                     <li className={styles.iconListItem}>
-                        <a href='/partners'><ArrowRightIcon className={styles.icon} />Partners</a>
+                        <a href='/clients'><ArrowRightIcon className={styles.icon} />Clients</a>
                     </li>
 
                     <li className={styles.iconListItem}>
@@ -60,7 +60,7 @@ const Footer = () => {
 
             <Box>
                 <ul className={styles.iconList}>
-                <h3>Contact Us</h3>
+                <h3>Get In Touch</h3>
                     <li className={styles.iconListItem}>
                         <LocationOnIcon className={styles.icon} />
                         <span>Suite # 205, Gulshan Trade Center Block 5

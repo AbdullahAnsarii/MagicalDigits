@@ -1,0 +1,42 @@
+$primary: #00478F;
+$secondary: #FF5D00;
+
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.heading {
+  position: absolute;
+  top: 35vw;
+  left: 35vw;
+  font-size: 8vw;
+  color: rgba(255, 93, 0, 0.7);
+}
+
+.client:hover {
+  transform: scale(1.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition: 0.4s;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .heading {
+    position: absolute;
+    top: 40vw;
+    left: 35vw;
+    font-size: 8vw;
+    color: rgba(255, 93, 0, 0.7);
+  }
+}

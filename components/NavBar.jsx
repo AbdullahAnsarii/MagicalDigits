@@ -15,7 +15,7 @@ import styles from '../styles/Navbar.module.scss'
 
 
 const NavBar = () => {
-  const pages = ['Home', 'Products', 'Services', 'Partners', 'About us', 'Careers'];
+  const pages = ['Home', 'Products', 'Services', 'Clients', 'About us', 'Careers'];
   const theme = useTheme();
   console.log(theme)
   const [anchorElNav, setAnchorElNav] = useState(null);
