@@ -60,7 +60,7 @@ const Footer = () => {
 
             <Box>
                 <ul className={styles.iconList}>
-                <h3>Get In Touch</h3>
+                <h3>Connect With Us</h3>
                     <li className={styles.iconListItem}>
                         <LocationOnIcon className={styles.icon} />
                         <span>Suite # 205, Gulshan Trade Center Block 5
