@@ -16,6 +16,7 @@ const Footer = () => {
                 
                 <Image src='/mdlogo.png' width='100%' height='60%' />
                 <p>&copy; {(new Date()).getFullYear()} Magical Digits. All rights reserved.</p>
+                
                 <Box>
                     <a target='__blank' href='https://www.facebook.com/MagicalDigitsPakistan/'>
                         <FacebookIcon sx={{color: '#3b5998'}} className={styles.icon} />
@@ -27,6 +28,7 @@ const Footer = () => {
                         <GitHubIcon sx={{color: '#171515'}} className={styles.icon} />
                     </a>
                 </Box>
+                <p>Website designed and developed by Abdullah Ansari</p>
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}}}>

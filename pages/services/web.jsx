@@ -42,10 +42,10 @@ const WebServices = () => {
             divider={<Divider orientation="vertical" flexItem />}
             spacing={2}
           >
-            <Tooltip placement="bottom" title='C#'><img className={styles.logo} src='/services/csharp.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Javascript'><img className={styles.logo} src='/services/js.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Typescript'><img className={styles.logo} src='/services/ts.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='PHP'><img className={styles.logo} src='/services/php.png' width='7%' /></Tooltip>
+            <Tooltip title='C#'><img className={styles.logo} src='/services/csharp.png' width='7%' /></Tooltip>
+            <Tooltip title='Javascript'><img className={styles.logo} src='/services/js.png' width='7%' /></Tooltip>
+            <Tooltip title='Typescript'><img className={styles.logo} src='/services/ts.png' width='7%' /></Tooltip>
+            <Tooltip title='PHP'><img className={styles.logo} src='/services/php.png' width='7%' /></Tooltip>
           </Stack>
           <h5 className={styles.logoHeading} >Web Frameworks.</h5>
           <Stack
@@ -54,9 +54,9 @@ const WebServices = () => {
             divider={<Divider orientation="vertical" flexItem />}
             spacing={2}
           >
-            <Tooltip placement="bottom" title='.NET'><img className={styles.logo} src='/services/net.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Next.js'><img className={styles.logo} src='/services/next.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Laravel'><img className={styles.logo} src='/services/laravel.png' width='7%' /></Tooltip>
+            <Tooltip title='.NET'><img className={styles.logo} src='/services/net.png' width='7%' /></Tooltip>
+            <Tooltip title='Next.js'><img className={styles.logo} src='/services/next.png' width='7%' /></Tooltip>
+            <Tooltip title='Laravel'><img className={styles.logo} src='/services/laravel.png' width='7%' /></Tooltip>
           </Stack>
           <h5 className={styles.logoHeading} >Front-end Stack.</h5>
           <Stack
@@ -65,16 +65,16 @@ const WebServices = () => {
             divider={<Divider orientation="vertical" flexItem />}
             spacing={2}
           >
-            <Tooltip placement="bottom" title='React.js'><img className={styles.logo} src='/services/react.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='JQuery'><img className={styles.logo} src='/services/jquery.png' width='7%' /></Tooltip>
+            <Tooltip title='React.js'><img className={styles.logo} src='/services/react.png' width='7%' /></Tooltip>
+            <Tooltip title='JQuery'><img className={styles.logo} src='/services/jquery.png' width='7%' /></Tooltip>
 
-            <Tooltip placement="bottom" title='HTML'><img className={styles.logo} src='/services/html.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='CSS'><img className={styles.logo} src='/services/css.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Bootstrap'><img className={styles.logo} src='/services/bootstrap.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Sass'><img className={styles.logo} src='/services/sass.png' width='7%' /></Tooltip>
+            <Tooltip title='HTML'><img className={styles.logo} src='/services/html.png' width='7%' /></Tooltip>
+            <Tooltip title='CSS'><img className={styles.logo} src='/services/css.png' width='7%' /></Tooltip>
+            <Tooltip title='Bootstrap'><img className={styles.logo} src='/services/bootstrap.png' width='7%' /></Tooltip>
+            <Tooltip title='Sass'><img className={styles.logo} src='/services/sass.png' width='7%' /></Tooltip>
             
-            <Tooltip placement="bottom" title='Material-UI'><img className={styles.logo} src='/services/mui.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Ant-Design'><img className={styles.logo} src='/services/antd.png' width='7%' /></Tooltip>
+            <Tooltip title='Material-UI'><img className={styles.logo} src='/services/mui.png' width='7%' /></Tooltip>
+            <Tooltip title='Ant-Design'><img className={styles.logo} src='/services/antd.png' width='7%' /></Tooltip>
             
           </Stack>
           <h5 className={styles.logoHeading} >Back-end.</h5>
@@ -84,9 +84,9 @@ const WebServices = () => {
             divider={<Divider orientation="vertical" flexItem />}
             spacing={2}
           >
-            <Tooltip placement="bottom" title='Node.js'><img className={styles.logo} src='/services/node.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='ASP.NET'><img className={styles.logo} src='/services/asp.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='VBA'><img className={styles.logo} src='/services/vba.png' width='7%' /></Tooltip>
+            <Tooltip title='Node.js'><img className={styles.logo} src='/services/node.png' width='7%' /></Tooltip>
+            <Tooltip title='ASP.NET'><img className={styles.logo} src='/services/asp.png' width='7%' /></Tooltip>
+            <Tooltip title='VBA'><img className={styles.logo} src='/services/vba.png' width='7%' /></Tooltip>
           </Stack>
           <h5 className={styles.logoHeading} >Database.</h5>
           <Stack
@@ -95,17 +95,17 @@ const WebServices = () => {
             divider={<Divider orientation="vertical" flexItem />}
             spacing={2}
           >
-            <Tooltip placement="bottom" title='MS SQL Server'><img className={styles.logo} src='/services/mssql.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='MySQL'><img className={styles.logo} src='/services/mysql.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='MongoDB'><img className={styles.logo} src='/services/mongo.png' width='7%' /></Tooltip>
-            <Tooltip placement="bottom" title='Firebase'><img className={styles.logo} src='/services/firebase.png' width='3%' /></Tooltip>
+            <Tooltip title='MS SQL Server'><img className={styles.logo} src='/services/mssql.png' width='7%' /></Tooltip>
+            <Tooltip title='MySQL'><img className={styles.logo} src='/services/mysql.png' width='7%' /></Tooltip>
+            <Tooltip title='MongoDB'><img className={styles.logo} src='/services/mongo.png' width='7%' /></Tooltip>
+            <Tooltip title='Firebase'><img className={styles.logo} src='/services/firebase.png' width='3%' /></Tooltip>
           </Stack>
         </Grid>
         <Grid id='getintouch' item xs={4}>
         <h6 className={styles.description}>
             Get In Touch:
           </h6>
-          <ContactUs />
+          <ContactUs projectType='web' />
         </Grid>
           </Grid>
         

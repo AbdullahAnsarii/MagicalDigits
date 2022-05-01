@@ -1,7 +1,7 @@
 import { Box, Button, MenuItem, Paper, Select, TextField, InputLabel, FormControl, Autocomplete } from "@mui/material";
 import { useState } from "react";
 
-const ContactUs = () => {
+const ContactUs = ({projectType}) => {
     const countries = [
         { code: 'AD', label: 'Andorra', phone: '376' },
         {
@@ -433,7 +433,7 @@ const ContactUs = () => {
         email: '',
         company: '',
         projectDetails: '',
-        projectType: 'web',
+        projectType: projectType,
         country: '',
         phoneNo: ''
     })
@@ -445,17 +445,16 @@ const ContactUs = () => {
         })
     }
 
-    console.log(formValues)
     return (
         <Paper elevation={3} sx={{ padding: '10px' }}>
             <form>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField label='First name*' value={formValues.firstName} onChange={e => setFormValues({ ...formValues, firstName: e.target.value })} variant='standard' size='small' />
-                    <TextField label='Last name*' value={formValues.lastName} onChange={e => setFormValues({ ...formValues, lastName: e.target.value })} variant='standard' size='small' />
+                    <TextField color='secondary' label='First name*' value={formValues.firstName} onChange={e => setFormValues({ ...formValues, firstName: e.target.value })} variant='standard' size='small' />
+                    <TextField color='secondary' label='Last name*' value={formValues.lastName} onChange={e => setFormValues({ ...formValues, lastName: e.target.value })} variant='standard' size='small' />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField label='Email*' value={formValues.email} onChange={e => setFormValues({ ...formValues, email: e.target.value })} type='email' variant='standard' size='small' />
+                    <TextField color='secondary' label='Email*' value={formValues.email} onChange={e => setFormValues({ ...formValues, email: e.target.value })} type='email' variant='standard' size='small' />
                     <FormControl variant="standard" sx={{ minWidth: 150 }}>
                         <InputLabel id="project-type-label">Project Type*</InputLabel>
                         <Select
@@ -498,7 +497,7 @@ const ContactUs = () => {
                             </Box>
                         )}
                         renderInput={(params) => (
-                            <TextField
+                            <TextField color='secondary'
                                 variant='standard'
                                 size='small'
                                 {...params}
@@ -510,13 +509,13 @@ const ContactUs = () => {
                             />
                         )}
                     />
-                    <TextField label='Contact No.*' value={formValues.phoneNo} onChange={e => setFormValues({ ...formValues, phoneNo: e.target.value })} variant='standard' size='small' />
+                    <TextField color='secondary' label='Contact No.*' value={formValues.phoneNo} onChange={e => setFormValues({ ...formValues, phoneNo: e.target.value })} variant='standard' size='small' />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField label='Company*' value={formValues.company} onChange={e => setFormValues({ ...formValues, company: e.target.value })} variant='standard' size='small' fullWidth />
+                    <TextField color='secondary' label='Company*' value={formValues.company} onChange={e => setFormValues({ ...formValues, company: e.target.value })} variant='standard' size='small' fullWidth />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField
+                    <TextField color='secondary'
                         label="Tell us about your project"
                         multiline
                         rows={4}
