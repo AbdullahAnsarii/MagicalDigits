@@ -11,12 +11,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import CopyrightIcon from '@mui/icons-material/Copyright';
 import styles from '../styles/Navbar.module.scss'
 import { Chip } from '@mui/material';
+import Link from 'next/link';
 
 
 const NavBar = () => {
-  const pages = ['Home', 'Products', 'Services', 'Clients', 'About us', 'Careers'];
+  const pages = ['Home', 'Products', 'Clients', 'About us', 'Careers'];
   const theme = useTheme();
   console.log(theme)
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -64,52 +67,67 @@ const NavBar = () => {
       <Container maxWidth="xl">
         <Toolbar className={styles.navbar} disableGutters>
           {/* desktop */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Image src="/mdlogo.png" width={imageWidth} height={imageHeight} />
-            <Typography sx={{ fontSize: fontSize, fontWeight: 'bold', color: '#00478F;' }} className={styles.heading} >
-              Magical Digits
-            </Typography>
-          </Box>
+
+          <Link href='/'>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }}>
+              <Image src="/mdlogo.png" width={imageWidth} height={imageHeight} />
+              <Typography sx={{ fontSize: fontSize, fontWeight: 'bold', color: '#00478F;' }} className={styles.heading} >
+                Magical Digits
+              </Typography>
+            </Box>
+          </Link>
 
           <Box className={styles.nav} sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'end' }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                href={`/${page.toLowerCase().replace(" ", "")}`}
-                sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
-              >
-                {page}
-              </Button>
-            ))}
 
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              // anchorOrigin={{
-              //   vertical: 'bottom',
-              //   horizontal: 'left',
-              // }}
-              // keepMounted
-              // transformOrigin={{
-              //   vertical: 'top',
-              //   horizontal: 'left',
-              // }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'flex', md: 'flex' },
-              }}
-            >
-              <MenuItem><a href="/services/web">Web Development</a></MenuItem>
-              <MenuItem><a href='/services/desktop'>Desktop Development</a></MenuItem>
-              <MenuItem><a href='/services/digitaldesign'>Digital Design</a></MenuItem>
-              <MenuItem><a href="/services/mobile" >Mobile Development <Chip size="small" label="new" color="secondary" /></a></MenuItem>
-            </Menu>
             <Button
-              onClick={handleOpenNavMenu}
+              href='/'
               sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
-            >Services
+            >
+              Home
             </Button>
+            <Box className={styles.dropdown}>
+              <Button endIcon={<ArrowDropDownIcon />} className={styles.dropbtn} sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}>Products</Button>
+              <Box className={styles.dropdownContent}>
+              <Button href="/products/opticofy" sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap' }} >Opticofy <Chip size="small" label="featured" color="secondary" /></Button>
+                <Button href="/products/md-gl" sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>MD-GL &copy;</Button>
+                <Button href='/products/md-ic' sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>MD-IC &copy;</Button>
+                <Button href='/products/md-ai' sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>MD-AI &copy;</Button>
+                <Button href='/products/md-cis' sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>MD-CIS &copy;</Button>
+              </Box>
+            </Box>
+            <Box className={styles.dropdown}>
+              <Button endIcon={<ArrowDropDownIcon />} className={styles.dropbtn} sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}>Services</Button>
+              <Box className={styles.dropdownContent}>
+                <Button href="/services/web" sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>Web Development</Button>
+                <Button href='/services/desktop' sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>Desktop Development</Button>
+                <Button href='/services/digitaldesign' sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>Digital Design</Button>
+                <Button sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap' }} href="/services/mobile" >Mobile Development <Chip size="small" label="new" color="secondary" /></Button>
+              </Box>
+            </Box>
+            <Button
+              href='/clients'
+              sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+            >
+              Clients
+            </Button>
+
+            <Box className={styles.dropdown}>
+              <Button endIcon={<ArrowDropDownIcon />} className={styles.dropbtn} sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}>About Us</Button>
+              <Box className={styles.dropdownContent}>
+                <Link href="/services/web">Web Development</Link>
+                <Link href='/services/desktop'>Desktop Development</Link>
+                <Link href='/services/digitaldesign'>Digital Design</Link>
+                <a style={{whiteSpace: 'nowrap'}} href="/services/mobile" >Mobile Development <Chip size="small" label="new" color="secondary" /></a>
+              </Box>
+            </Box>
+            <Button
+              href='/clients'
+              sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+            >
+              Careers
+            </Button>
+
+
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Button
