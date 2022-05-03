@@ -1,25 +1,40 @@
-import { Button, Container, Stack, Tooltip, Divider, Box, Grid } from '@mui/material';
-import Head from 'next/head'
-import styles from '../../styles/Opticofy.module.scss'
-import Image from 'next/image'
-import ContactUs from '../../components/ContactUs';
+import { Button, Container, Stack, Tooltip, Divider, Box, Grid, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import Head from 'next/head';
+import styles from '../../styles/Opticofy.module.scss';
+import Image from 'next/image';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import ShieldIcon from '@mui/icons-material/Shield';
+import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import LanguageIcon from '@mui/icons-material/Language';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import MailIcon from '@mui/icons-material/Mail';
 
 const Opticofy = () => {
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection: 'row-reverse', background: '#D1FFBF' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row-reverse', background: '#c7ffd4' }}>
                 {/* <Box> */}
                 <img className={styles.image} src='/opticofy/main.png' width='100%' />
                 {/* </Box> */}
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} >
-                        <img src='/opticofy/opticofynav.png' width='28%' height='35%' />
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                        <img src='/opticofy/opticofynav.png' width='25%' height='35%' />
                         <h5 className={styles.heading}>Opticofy.</h5>
                     </Box>
                     <h6 className={styles.description}>
-                        To understand and meet your requirements, our battle-tested web development team utilises both latest and legacy tools.
+                        Opticofy provides various features to incorporate all your business needs in one single software. Now you don't need to maintain or purchase different softwares for your optical retail store; our software can do everything for you at one place. It is hassle free and cost effective.
+                        <br /> <em>that's why, Opticofy.</em>
                     </h6>
-                    <Button href="#getintouch" variant="outlined" color="secondary" sx={{ textTransform: 'none', justifySelf: 'center', margin: '0.5vw' }}>Get In Touch</Button>
+                    <Button href="https://opticofy.com" target="_blank" variant="outlined" color="secondary" sx={{ textTransform: 'none', justifySelf: 'center', margin: '0.5vw' }}>Get Started For Free</Button>
                 </Box>
             </Box>
 
@@ -33,51 +48,118 @@ const Opticofy = () => {
                     <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" />
                 </Head>
 
-                <Grid container spacing={1}>
-                    <Grid item xs={8}>
-                        <h6 className={styles.description}>
-                            We have expertise in the following:
-                        </h6>
-                        <h5 className={styles.logoHeading} >Programming Languages.</h5>
-                        <Stack
-                            sx={{ alignItems: 'center', justifyContent: 'left' }}
-                            direction="row"
-                            divider={<Divider orientation="vertical" flexItem />}
-                            spacing={2}
-                        >
-                            <Tooltip title='Java'><img className={styles.logo} src='/services/java.png' width='7%' /></Tooltip>
-                            <Tooltip title='Javascript'><img className={styles.logo} src='/services/js.png' width='7%' /></Tooltip>
-                            <Tooltip title='Dart'><img className={styles.logo} src='/services/dart.png' width='7%' /></Tooltip>
-                        </Stack>
-                        <h5 className={styles.logoHeading} >UI Frameworks.</h5>
-                        <Stack
-                            sx={{ alignItems: 'center', justifyContent: 'left' }}
-                            direction="row"
-                            divider={<Divider orientation="vertical" flexItem />}
-                            spacing={2}
-                        >
-                            <Tooltip title='React Native'><img className={styles.logo} src='/services/reactnative.png' width='7%' /></Tooltip>
-                            <Tooltip title='Flutter'><img className={styles.logo} src='/services/flutter.png' width='7%' /></Tooltip>
-                        </Stack>
-                        <h5 className={styles.logoHeading} >Database.</h5>
-                        <Stack
-                            sx={{ alignItems: 'center', justifyContent: 'left' }}
-                            direction="row"
-                            divider={<Divider orientation="vertical" flexItem />}
-                            spacing={2}
-                        >
-                            <Tooltip title='MongoDB'><img className={styles.logo} src='/services/mongo.png' width='7%' /></Tooltip>
-                            <Tooltip title='Firebase'><img className={styles.logo} src='/services/firebase.png' width='3%' /></Tooltip>
-                        </Stack>
+                <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+                    <Grid item xs={7}>
+                        <img src='/opticofy/desktop.png' />
                     </Grid>
-                    <Grid id='getintouch' item xs={4}>
+                    <Grid item xs={5} >
                         <h6 className={styles.description}>
-                            Get In Touch:
+                            Features
                         </h6>
-                        <ContactUs projectType='mobile' />
+                        <List className={styles.features}>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <AccessibilityNewIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Easy to use.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <ElectricBoltIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Fast.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <ShieldIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Secure.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <SupportAgentIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Dedicated customer support.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <MobileFriendlyIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Mobile friendly responsive design.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <AddBusinessIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Handle multiple branches with single account.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <InventoryIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Built in inventory support.' />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                            <ListItem>
+                                <ListItemIcon>
+                                    <TimelineIcon fontSize='large' color='primary' />
+                                </ListItemIcon>
+
+                                <ListItemText primary='Analyze business performance using graphical analytics.' />
+                            </ListItem>
+                        </List>
                     </Grid>
                 </Grid>
-
+                <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+                    <Grid item xs={7}>
+                        <h6 className={styles.description}>
+                            Introduction Video
+                        </h6>
+                        <iframe src="https://www.youtube.com/embed/SI8eyiTLymE?rel=0" width='100%' height='350vw' allowfullscreen></iframe>
+                    </Grid>
+                    <Grid item xs={5}>
+                        <img src='/opticofy/mobile.png' />
+                    </Grid>
+                </Grid>
+                <Box>
+                    <h6 className={styles.description}>Connect with Opticofy</h6>
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <a href='https://opticofy.com' target="_blank">
+                            <LanguageIcon color='primary' fontSize='large' />
+                        </a>
+                        <a href='https://api.whatsapp.com/send?phone=923012216771' target="_blank">
+                            <WhatsAppIcon sx={{color: '#4FCE5D'}} fontSize='large' />
+                        </a>
+                        <a href='mailto:opticofy@magicaldigits.com' target="_blank">
+                            <MailIcon sx={{color: '#4285F4'}} fontSize='large' />
+                        </a>
+                        <a href='https://www.facebook.com/opticofyasia' target="_blank">
+                            <FacebookIcon sx={{color: '#3b5998'}} fontSize='large' />
+                        </a>
+                        <a href='https://www.instagram.com/opticofy/' target="_blank">
+                            <InstagramIcon sx={{color: '#3f729b'}} fontSize='large' />
+                        </a>
+                        <a href='https://www.youtube.com/channel/UChtFdPVEcBDvM3STEA6HV1A' target="_blank">
+                            <YouTubeIcon sx={{color: '#FF0000'}} fontSize='large' />
+                        </a>
+                        <a href='https://www.linkedin.com/products/magicaldigits-opticofy/' target="_blank">
+                            <LinkedInIcon sx={{color: '#0072b1'}} fontSize='large' />
+                        </a>
+                    </Box>
+                </Box>
             </Container>
         </>
     )
