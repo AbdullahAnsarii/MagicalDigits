@@ -17,11 +17,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailIcon from '@mui/icons-material/Mail';
+import { Slide } from "react-awesome-reveal";
 
 const Opticofy = () => {
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection: 'row-reverse', background: '#c7ffd4' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row-reverse', background: '#d4fce5' }}>
                 {/* <Box> */}
                 <img className={styles.image} src='/opticofy/main.png' width='100%' />
                 {/* </Box> */}
@@ -50,7 +51,9 @@ const Opticofy = () => {
 
                 <Grid container spacing={1} sx={{ alignItems: 'center' }}>
                     <Grid item xs={7}>
-                        <img src='/opticofy/desktop.png' />
+                        <Slide direction='up' triggerOnce>
+                            <img src='/opticofy/desktop.png' />
+                        </Slide>
                     </Grid>
                     <Grid item xs={5} >
                         <h6 className={styles.description}>
@@ -118,7 +121,7 @@ const Opticofy = () => {
                                     <TimelineIcon fontSize='large' color='primary' />
                                 </ListItemIcon>
 
-                                <ListItemText primary='Analyze business performance using graphical analytics.' />
+                                <ListItemText primary='Analyze business performance using graphs and reports.' />
                             </ListItem>
                         </List>
                     </Grid>
@@ -128,10 +131,12 @@ const Opticofy = () => {
                         <h6 className={styles.description}>
                             Introduction Video
                         </h6>
-                        <iframe src="https://www.youtube.com/embed/SI8eyiTLymE?rel=0" width='100%' height='350vw' allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/SI8eyiTLymE?rel=0" width='100%' height='350vw' allowFullScreen></iframe>
                     </Grid>
                     <Grid item xs={5}>
-                        <img src='/opticofy/mobile.png' />
+                        <Slide triggerOnce direction='up'>
+                            <img src='/opticofy/mobile.png' />
+                        </Slide>
                     </Grid>
                 </Grid>
                 <Box>
@@ -141,22 +146,22 @@ const Opticofy = () => {
                             <LanguageIcon color='primary' fontSize='large' />
                         </a>
                         <a href='https://api.whatsapp.com/send?phone=923012216771' target="_blank">
-                            <WhatsAppIcon sx={{color: '#4FCE5D'}} fontSize='large' />
+                            <WhatsAppIcon sx={{ color: '#4FCE5D' }} fontSize='large' />
                         </a>
                         <a href='mailto:opticofy@magicaldigits.com' target="_blank">
-                            <MailIcon sx={{color: '#4285F4'}} fontSize='large' />
+                            <MailIcon sx={{ color: '#4285F4' }} fontSize='large' />
                         </a>
                         <a href='https://www.facebook.com/opticofyasia' target="_blank">
-                            <FacebookIcon sx={{color: '#3b5998'}} fontSize='large' />
+                            <FacebookIcon sx={{ color: '#3b5998' }} fontSize='large' />
                         </a>
                         <a href='https://www.instagram.com/opticofy/' target="_blank">
-                            <InstagramIcon sx={{color: '#3f729b'}} fontSize='large' />
+                            <InstagramIcon sx={{ color: '#3f729b' }} fontSize='large' />
                         </a>
                         <a href='https://www.youtube.com/channel/UChtFdPVEcBDvM3STEA6HV1A' target="_blank">
-                            <YouTubeIcon sx={{color: '#FF0000'}} fontSize='large' />
+                            <YouTubeIcon sx={{ color: '#FF0000' }} fontSize='large' />
                         </a>
                         <a href='https://www.linkedin.com/products/magicaldigits-opticofy/' target="_blank">
-                            <LinkedInIcon sx={{color: '#0072b1'}} fontSize='large' />
+                            <LinkedInIcon sx={{ color: '#0072b1' }} fontSize='large' />
                         </a>
                     </Box>
                 </Box>

@@ -25,8 +25,8 @@ const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [padding, setPadding] = useState("10px");
   const [fontSize, setFontSize] = useState("1em");
-  const [imageWidth, setImageWidth] = useState("80vh");
-  const [imageHeight, setImageHeight] = useState("50vh");
+  const [imageWidth, setImageWidth] = useState("100vw");
+  const [imageHeight, setImageHeight] = useState("50vw");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,10 +114,8 @@ const NavBar = () => {
             <Box className={styles.dropdown}>
               <Button endIcon={<ArrowDropDownIcon />} className={styles.dropbtn} sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}>About Us</Button>
               <Box className={styles.dropdownContent}>
-                <Link href="/services/web">Web Development</Link>
-                <Link href='/services/desktop'>Desktop Development</Link>
-                <Link href='/services/digitaldesign'>Digital Design</Link>
-                <a style={{whiteSpace: 'nowrap'}} href="/services/mobile" >Mobile Development <Chip size="small" label="new" color="secondary" /></a>
+                <Link href="/about-us/our-story">About Magical Digits</Link>
+                <Link href='/about-us/our-team'>Our Team</Link>
               </Box>
             </Box>
             <Button
