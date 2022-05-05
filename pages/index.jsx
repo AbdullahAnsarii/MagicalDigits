@@ -1,8 +1,15 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 import Carousel from '../components/Carousel';
+import SwipeableViews from 'react-swipeable-views';
+import { isMobile } from 'react-device-detect';
+import { autoPlay } from 'react-swipeable-views-utils';
+
 
 export default function Home() {
+
+  const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
   return (
     <>
       <Carousel />
@@ -22,7 +29,7 @@ export default function Home() {
             The complete software development cycle simply managed for you.
           </h6>
 
-          <p>Explore What <b style={{color: '#00478F'}}>Magical Digits</b> Can Do For You</p>
+          <p>Explore What <b style={{ color: '#00478F' }}>Magical Digits</b> Can Do For You</p>
           <div className={styles.grid}>
             <a className={styles.card1} href="#">
               <h3>Innovation</h3>
@@ -87,7 +94,29 @@ export default function Home() {
                 </div>
               </div>
             </a>
+
           </div>
+          <p>Our partners who help us grow.</p>
+          {!isMobile && <div className={styles.partners}>
+            <img width='8%' height='40%' src='/aws.png' />
+            <img width='10%' height='40%' src='/microsoft.png' />
+            <img width='10%' height='40%' src='/vortex.png' />
+            <img width='8%' height='40%' src='/airbnb.png' />
+            <img width='10%' height='40%' src='/upwork.png' />
+            <img width='10%' height='40%' src='/vrbo.png' />
+          </div>}
+          {isMobile && <AutoPlaySwipeableViews>
+            <div className={styles.partners}>
+              <img width='16%' height='40%' src='/aws.png' />
+              <img width='20%' height='40%' src='/microsoft.png' />
+              <img width='20%' height='40%' src='/vortex.png' />
+            </div>
+            <div className={styles.partners}>
+              <img width='16%' height='40%' src='/airbnb.png' />
+              <img width='20%' height='40%' src='/upwork.png' />
+              <img width='20%' height='40%' src='/vrbo.png' />
+            </div>
+          </AutoPlaySwipeableViews>}
         </main>
 
 
