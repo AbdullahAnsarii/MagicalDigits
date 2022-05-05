@@ -12,7 +12,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import CopyrightIcon from '@mui/icons-material/Copyright';
 import styles from '../styles/Navbar.module.scss'
 import { Chip } from '@mui/material';
 import Link from 'next/link';
@@ -133,7 +132,7 @@ const NavBar = () => {
               href='contactus'
               variant="outlined"
               color="secondary"
-              sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
+              className={styles.animatedButton}
             >
               Contact us
             </Button>

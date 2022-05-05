@@ -1,7 +1,8 @@
 import { Box, Button, MenuItem, Paper, Select, TextField, InputLabel, FormControl, Autocomplete } from "@mui/material";
 import { useState } from "react";
+import styles from '../styles/Navbar.module.scss';
 
-const ContactUs = ({projectType}) => {
+const ContactUs = ({ projectType }) => {
     const countries = [
         { code: 'AD', label: 'Andorra', phone: '376' },
         {
@@ -446,16 +447,16 @@ const ContactUs = ({projectType}) => {
     }
 
     return (
-        <Paper elevation={3} sx={{ padding: '10px' }}>
+        <Paper sx={{p:2}} elevation={1}>
             <form>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField color='secondary' label='First name*' value={formValues.firstName} onChange={e => setFormValues({ ...formValues, firstName: e.target.value })} variant='standard' size='small' />
-                    <TextField color='secondary' label='Last name*' value={formValues.lastName} onChange={e => setFormValues({ ...formValues, lastName: e.target.value })} variant='standard' size='small' />
+                    <TextField sx={{ width: '50%', m: 2.5 }} color='secondary' label='First name*' value={formValues.firstName} onChange={e => setFormValues({ ...formValues, firstName: e.target.value })} variant='standard' size='small' />
+                    <TextField sx={{ width: '50%', m: 2.5 }} color='secondary' label='Last name*' value={formValues.lastName} onChange={e => setFormValues({ ...formValues, lastName: e.target.value })} variant='standard' size='small' />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField color='secondary' label='Email*' value={formValues.email} onChange={e => setFormValues({ ...formValues, email: e.target.value })} type='email' variant='standard' size='small' />
-                    <FormControl variant="standard" sx={{ minWidth: 150 }}>
+                    <TextField sx={{ width: '50%', m: 2 }} color='secondary' label='Email*' value={formValues.email} onChange={e => setFormValues({ ...formValues, email: e.target.value })} type='email' variant='standard' size='small' />
+                    <FormControl variant="standard" sx={{ width: '50%', m: 2 }} size='small'>
                         <InputLabel id="project-type-label">Project Type*</InputLabel>
                         <Select
                             labelId="project-type-label"
@@ -477,10 +478,11 @@ const ContactUs = ({projectType}) => {
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Autocomplete
+                        size="small"
                         id="country-select-demo"
                         defaultValue={[countries[20]].label}
                         onChange={handleCountryChange}
-                        sx={{ width: 150 }}
+                        sx={{ width: '50%', m: 2 }}
                         options={countries}
                         autoHighlight
                         getOptionLabel={(option) => option.label}
@@ -509,14 +511,15 @@ const ContactUs = ({projectType}) => {
                             />
                         )}
                     />
-                    <TextField color='secondary' label='Contact No.*' value={formValues.phoneNo} onChange={e => setFormValues({ ...formValues, phoneNo: e.target.value })} variant='standard' size='small' />
+                    <TextField sx={{ width: '50%', m: 2 }} color='secondary' label='Contact No.*' value={formValues.phoneNo} onChange={e => setFormValues({ ...formValues, phoneNo: e.target.value })} variant='standard' size='small' />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextField color='secondary' label='Company*' value={formValues.company} onChange={e => setFormValues({ ...formValues, company: e.target.value })} variant='standard' size='small' fullWidth />
+                    <TextField sx={{ m: 2 }} color='secondary' label='Company*' value={formValues.company} onChange={e => setFormValues({ ...formValues, company: e.target.value })} variant='standard' size='small' fullWidth />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <TextField color='secondary'
                         label="Tell us about your project"
+                        sx={{ m: 2 }}
                         multiline
                         rows={4}
                         fullWidth
@@ -527,7 +530,11 @@ const ContactUs = ({projectType}) => {
                     />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button type="submit">Submit</Button>
+                    <Button
+                        type="submit"
+                        variant="outlined"
+                        color="secondary"
+                        className={styles.animatedButton}>Submit</Button>
                 </Box>
 
             </form>
