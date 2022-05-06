@@ -17,8 +17,10 @@ import WorkIcon from '@mui/icons-material/Work';
 
 const Careers = () => {
     const [source, setSource] = useState('');
+    const [flexDirectionResponsive, setFlexDirectionResponsive] = useState('row');
     useLayoutEffect(() => {
-        isMobile ? setSource('/careersmobile.png') : setSource('/careersdesktop.png')
+        isMobile ? setSource('/careersmobile.png') : setSource('/careersdesktop.png');
+        isMobile ? setFlexDirectionResponsive('column') : setFlexDirectionResponsive('row');
     }, [])
     return (
         <>
@@ -155,8 +157,8 @@ const Careers = () => {
                 </Grid>
 
                 <h6 className={styles.heading2}>Current Job Openings.</h6>
-                <Box id='jobopenings' sx={{ display: 'flex', justifyContent: 'space-evenly', mb: 2 }}>
-                    <Paper elevation={4} sx={{ p: 3 }}>
+                <Box id='jobopenings' sx={{ display: 'flex', justifyContent: 'space-evenly', flexDirection: flexDirectionResponsive }}>
+                    <Paper elevation={4} sx={{ p: 3, mb:2 }}>
                         <h3>Junior Software Engineer</h3>
                         <Chip size="small" label="1 Position" color='secondary' />
                         <p>Karachi, <img src='https://flagcdn.com/w20/pk.png' /></p>
@@ -174,7 +176,7 @@ const Careers = () => {
                             View Details
                         </Button></Box>
                     </Paper>
-                    <Paper elevation={4} sx={{ p: 3 }}>
+                    <Paper elevation={4} sx={{ p: 3, mb:2 }}>
                         <h3>Associate Software Engineer</h3>
                         <Chip size="small" label="4 Positions" color='secondary' />
                         <p>Karachi, <img src='https://flagcdn.com/w20/pk.png' /></p>
@@ -192,7 +194,7 @@ const Careers = () => {
                             View Details
                         </Button></Box>
                     </Paper>
-                    <Paper elevation={4} sx={{ p: 3 }}>
+                    <Paper elevation={4} sx={{ p: 3, mb:2 }}>
                         <h3>Junior Mobile Developer</h3>
                         <Chip size="small" label="1 Position" color='secondary' />
                         <p>Karachi, <img src='https://flagcdn.com/w20/pk.png' /></p>
