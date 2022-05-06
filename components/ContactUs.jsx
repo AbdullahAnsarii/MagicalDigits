@@ -434,7 +434,7 @@ const ContactUs = ({ projectType }) => {
         email: '',
         company: '',
         projectDetails: '',
-        projectType: projectType,
+        projectType: projectType || '',
         country: '',
         phoneNo: ''
     })

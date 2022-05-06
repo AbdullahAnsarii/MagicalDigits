@@ -118,7 +118,7 @@ const NavBar = () => {
               </Box>
             </Box>
             <Button
-              href='/clients'
+              href='/careers'
               sx={{ my: 1, display: 'flex', textTransform: 'none', fontSize: fontSize }}
             >
               Careers
@@ -129,7 +129,7 @@ const NavBar = () => {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Button
               key='Contact us'
-              href='contactus'
+              href='/contactus'
               variant="outlined"
               color="secondary"
               className={styles.animatedButton}

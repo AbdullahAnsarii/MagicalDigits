@@ -31,7 +31,7 @@ const ContactUsPage = () => {
 
                 <Grid container sx={{ my: 2 }}>
                     <Grid item xs={12} md={8}>
-                        <ContactUs className={styles.formD} />
+                        <ContactUs projectType='' />
                     </Grid>
                     <Grid item xs={12} md={4} sx={{ alignSelf: 'center' }}>
                         <List>

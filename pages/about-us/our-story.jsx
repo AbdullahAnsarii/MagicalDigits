@@ -16,10 +16,10 @@ const OurStory = () => {
                     <h1 className={styles.testimonialsHeading2}>Our Impact</h1>
                 </Box>
                 <Stack sx={{ justifyContent: "center", alignItems: "center", marginBottom: "2vw" }} direction="row" spacing={2}>
-                    <span><b className={styles.stats}><CountUp end={20} duration={4} />+</b> Years</span>
-                    <span><b className={styles.stats}><CountUp end={40} duration={4} />+</b> Clients</span>
-                    <span><b className={styles.stats}><CountUp end={1000} duration={4} />+</b> IT Solutions</span>
-                    <span><b className={styles.stats}><CountUp end={11} duration={4} />+</b> Countries</span>
+                    <span><b className={styles.stats}><CountUp end={20} duration={2} />+</b> Years</span>
+                    <span><b className={styles.stats}><CountUp end={40} duration={2} />+</b> Clients</span>
+                    <span><b className={styles.stats}><CountUp end={1000} duration={2} />+</b> IT Solutions</span>
+                    <span><b className={styles.stats}><CountUp end={11} duration={2} />+</b> Countries</span>
                 </Stack>
             </>
         )
