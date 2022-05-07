@@ -198,8 +198,13 @@ const Careers = ({ jobs }) => {
                                 <Chip size="small" label={`${job.positions} ${job.positions > 1 ? 'Positions' : 'Position'}`} color='secondary' />
                                 <p>Karachi, <img src='https://flagcdn.com/w20/pk.png' /></p>
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}><WorkIcon fontSize='small' color='primary' />&nbsp;<span>Permanent</span></Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}><AccessTimeIcon fontSize='small' color='primary' />&nbsp;<span>Applications closing on {job.closes}</span></Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <AccessTimeIcon fontSize='small' color='primary' />&nbsp;
+                                    {new Date(job.closes) > new Date() ? <span>Applications closing on {`${(new Date(job.closes)).getDate()}/${(new Date(job.closes)).getMonth() + 1}/${(new Date(job.closes)).getFullYear()}`}
+                                    </span> : <span>Applications closed for this position</span>}
+                                </Box>
                                 <Box sx={{ textAlign: 'center' }}><Button
+                                    disabled={new Date(job.closes) > new Date() ? false : true}
                                     size='small'
                                     key='Contact us'
                                     href='#jobopenings'
@@ -212,7 +217,7 @@ const Careers = ({ jobs }) => {
                                 </Button></Box>
                             </Paper>
                         </Grid>
-                    )): <h6 className={styles.description}>No jobs found for this keyword.</h6>}
+                    )) : <h6 className={styles.description}>No jobs found for this keyword.</h6>}
                 </Grid>
 
             </Container>
