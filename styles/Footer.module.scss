@@ -17,19 +17,11 @@ $secondary: #FF5D00;
 .iconListItem{
     display: flex;
 }
-.iconListItem:hover{
-    display: flex;
-    color: $secondary;
-}
 .icon {
     color: $primary;
     vertical-align: bottom;
 }
-.icon:hover {
-    color: $secondary;
-    vertical-align: bottom;
-}
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .footer {
         display: flex;
         flex-direction: column;

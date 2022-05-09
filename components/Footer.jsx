@@ -8,6 +8,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Box } from '@mui/material';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -28,26 +29,22 @@ const Footer = () => {
                         <GitHubIcon sx={{color: '#171515'}} className={styles.icon} />
                     </a>
                 </Box>
-                {/* <p>Website designed and developed by Abdullah Ansari</p> */}
+                <p>Website designed and developed by <Link href='http://localhost:3000/about-us/our-team#abdullahansari'>Abdullah Ansari</Link></p>
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
             <ul className={styles.iconList} >
-                <h3>Sitemap</h3>
+                <h3>Quick Links</h3>
                     <li className={styles.iconListItem}>
-                        <a href='/products'><ArrowRightIcon className={styles.icon} />Product</a>
+                        <a href='/products/opticofy'><ArrowRightIcon className={styles.icon} />Opticofy</a>
                     </li>
 
                     <li className={styles.iconListItem}>
-                        <a href='/services'><ArrowRightIcon className={styles.icon} />Services</a>
+                        <a href='/about-us/our-story'><ArrowRightIcon className={styles.icon} />Our Story</a>
                     </li>
 
                     <li className={styles.iconListItem}>
-                        <a href='/clients'><ArrowRightIcon className={styles.icon} />Clients</a>
-                    </li>
-
-                    <li className={styles.iconListItem}>
-                        <a href='/aboutus'><ArrowRightIcon className={styles.icon} />About Us</a>
+                        <a href='/about-us/our-team'><ArrowRightIcon className={styles.icon} />Our Team</a>
                     </li>
 
                     <li className={styles.iconListItem}>
@@ -59,8 +56,8 @@ const Footer = () => {
                     </li>
                 </ul>
             </Box>
-
-            <Box>
+       
+            <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                 <ul className={styles.iconList}>
                 <h3>Connect With Us</h3>
                     <li className={styles.iconListItem}>

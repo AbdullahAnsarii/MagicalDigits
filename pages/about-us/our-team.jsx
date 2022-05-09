@@ -148,7 +148,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}}>
+                        <Card elevation={4} sx={{m:1}} id='abdullahansari'>
                             <CardMedia
                                 className={styles.img}
                                 component="img"

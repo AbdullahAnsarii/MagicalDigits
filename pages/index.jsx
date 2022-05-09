@@ -4,6 +4,7 @@ import Carousel from '../components/Carousel';
 import SwipeableViews from 'react-swipeable-views';
 import { isMobile } from 'react-device-detect';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { Box } from '@mui/material';
 
 
 export default function Home() {
@@ -31,64 +32,64 @@ export default function Home() {
 
           <p>Explore What <b style={{ color: '#00478F' }}>Magical Digits</b> Can Do For You</p>
           <div className={styles.grid}>
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Innovation</h3>
               <p className={styles.small}>
                 We create products that are used by small and big businesses all around the globe.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
               </div>
             </a>
 
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Team Augmentation</h3>
               <p className={styles.small}>
                 We help you beat the competition by accelerating your digital journey through quicker software delivery.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
               </div>
             </a>
 
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Software Development</h3>
               <p className={styles.small}>
                 We engineer high performing software solution using all the latest tools.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
               </div>
             </a>
 
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Digital Design</h3>
               <p className={styles.small}>
                 We build interactive designs that are beyond amazing in order to make your business stand out.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
               </div>
             </a>
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Modernization</h3>
               <p className={styles.small}>
                 We have extensive expertise in migrating softwares built upon legacy tools to modern tools.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
               </div>
             </a>
-            <a className={styles.card1} href="#">
+            <a className={styles.card1}>
               <h3>Quality Assurance</h3>
               <p className={styles.small}>
                 We test every aspect of software to give you an end product that is dependable.</p>
-              <div className={styles.goCorner} href="#">
+              <div className={styles.goCorner}>
                 <div className={styles.goArrow}>
                   &rarr;
                 </div>
@@ -97,26 +98,26 @@ export default function Home() {
 
           </div>
           <p>Our partners who help us grow.</p>
-          {/* {!isMobile && <div className={styles.partners}>
+          <Box sx={{display:{xs:'none', md: 'flex'}}} className={styles.partners}>
             <img width='8%' height='40%' src='/aws.png' />
             <img width='10%' height='40%' src='/microsoft.png' />
             <img width='10%' height='40%' src='/vortex.png' />
             <img width='8%' height='40%' src='/airbnb.png' />
             <img width='10%' height='40%' src='/upwork.png' />
             <img width='10%' height='40%' src='/vrbo.png' />
-          </div>} */}
-          {isMobile && <AutoPlaySwipeableViews>
-            <div className={styles.partners}>
+          </Box>
+          <AutoPlaySwipeableViews>
+            <Box sx={{display:{xs:'flex', md: 'none'}}} className={styles.partners}>
               <img width='16%' height='40%' src='/aws.png' />
               <img width='20%' height='40%' src='/microsoft.png' />
               <img width='20%' height='40%' src='/vortex.png' />
-            </div>
-            <div className={styles.partners}>
+            </Box>
+            <Box sx={{display:{xs:'flex', md: 'none'}}} className={styles.partners}>
               <img width='16%' height='40%' src='/airbnb.png' />
               <img width='20%' height='40%' src='/upwork.png' />
               <img width='20%' height='40%' src='/vrbo.png' />
-            </div>
-          </AutoPlaySwipeableViews>}
+            </Box>
+          </AutoPlaySwipeableViews>
         </main>
 
 
