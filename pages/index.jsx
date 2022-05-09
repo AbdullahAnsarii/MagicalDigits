@@ -97,14 +97,14 @@ export default function Home() {
 
           </div>
           <p>Our partners who help us grow.</p>
-          {!isMobile && <div className={styles.partners}>
+          {/* {!isMobile && <div className={styles.partners}>
             <img width='8%' height='40%' src='/aws.png' />
             <img width='10%' height='40%' src='/microsoft.png' />
             <img width='10%' height='40%' src='/vortex.png' />
             <img width='8%' height='40%' src='/airbnb.png' />
             <img width='10%' height='40%' src='/upwork.png' />
             <img width='10%' height='40%' src='/vrbo.png' />
-          </div>}
+          </div>} */}
           {isMobile && <AutoPlaySwipeableViews>
             <div className={styles.partners}>
               <img width='16%' height='40%' src='/aws.png' />

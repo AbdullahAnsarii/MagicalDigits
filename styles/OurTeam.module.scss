@@ -14,6 +14,7 @@ $secondary: #FF5D00;
     font-size: 1.5rem;
     color: black;
 }
+
 .description2 {
     // margin: 4rem 0;
     line-height: 1.5;
@@ -30,12 +31,56 @@ $secondary: #FF5D00;
     font-size: 10vw;
     margin: 0;
 }
+
 .heading2 {
     color: $primary;
     font-size: 5vw;
     text-align: center;
     margin: 8px;
 }
+
+.stats {
+    font-size: 6vw;
+    color: $primary;
+}
+
+.stats:hover {
+    font-size: 6vw;
+    color: $secondary;
+}
+
+.img {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all .3s ease !important;
+    -o-transition: all .3s ease !important;
+    transition: all .3s ease !important;
+}
+
+.img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color:#00478F;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.8),
+      rgba(0,0,0,0.8) 100px,
+      transparent 0px,
+      transparent 200px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5) 100px,
+      transparent 0px,
+      transparent 200px
+    );
+}
+
+
 
 @media (max-width: 600px) {
     .heading {
