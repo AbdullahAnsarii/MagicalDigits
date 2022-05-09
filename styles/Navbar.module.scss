@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 .navbar {
     display: flex;
@@ -27,7 +27,7 @@ $secondary: #FF5D00;
 
 .dropdownContent {
     display: none;
-    position: relative;
+    position: fixed;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
