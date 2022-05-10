@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 
 .title,
@@ -25,7 +25,7 @@ $secondary: #FF5D00;
     position: absolute;
     top: 20vw;
     left: 30vw;
-    background: -webkit-linear-gradient($primary, #40AFFF);
+    background: -webkit-linear-gradient($secondary, #40AFFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 10vw;
@@ -40,14 +40,15 @@ $secondary: #FF5D00;
 }
 
 .stats {
-    font-size: 6vw;
+    font-size: 60px;
     color: $primary;
 }
 
 .stats:hover {
-    font-size: 6vw;
+    font-size: 70px;
     color: $secondary;
 }
+
 
 .img {
     -webkit-transform: scale(1);
@@ -62,22 +63,18 @@ $secondary: #FF5D00;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-    background-color:#00478F;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      rgba(0,0,0,0.8),
-      rgba(0,0,0,0.8) 100px,
-      transparent 0px,
-      transparent 200px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(0,0,0,0.5),
-      rgba(0,0,0,0.5) 100px,
-      transparent 0px,
-      transparent 200px
-    );
+    background-color: #00478F;
+    background-image:
+        repeating-linear-gradient(45deg,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8) 100px,
+            transparent 0px,
+            transparent 200px),
+        repeating-linear-gradient(-45deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5) 100px,
+            transparent 0px,
+            transparent 200px);
 }
 
 
@@ -86,8 +83,10 @@ $secondary: #FF5D00;
     .heading {
         position: absolute;
         top: 50vw;
-        left: 35vw;
-        font-size: 10vw;
-        color: rgba(255, 93, 0, 0.7);
+        left: 22vw;
+        font-size: 16vw;
+        background: -webkit-linear-gradient($secondary, #40AFFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }

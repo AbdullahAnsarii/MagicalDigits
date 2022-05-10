@@ -13,6 +13,11 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import MoneyIcon from '@mui/icons-material/Money';
 import WorkIcon from '@mui/icons-material/Work';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle'
 
 export const getStaticProps = () => {
     const jobs = [
@@ -31,6 +36,15 @@ export const getStaticProps = () => {
 const Careers = ({ jobs }) => {
     const [searchText, setSearchText] = useState('');
     const [showResult, setShowResult] = useState(jobs);
+    const [openJob1, setOpenJob1] = useState(false);
+
+    const handleClickOpenJob1 = () => {
+        setOpenJob1(true);
+    };
+
+    const handleCloseJob1 = () => {
+        setOpenJob1(false);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -207,6 +221,7 @@ const Careers = ({ jobs }) => {
                                     color="secondary"
                                     className={styles.animatedButton}
                                     sx={{ mt: 1 }}
+                                    onClick={handleClickOpenJob1}
                                 >
                                     View Details
                                 </Button></Box>
@@ -214,7 +229,28 @@ const Careers = ({ jobs }) => {
                         </Grid>
                     )) : <h6 className={styles.description}>No jobs found for this keyword.</h6>}
                 </Grid>
-
+                <Dialog open={openJob1} onClose={handleCloseJob1}>
+                    <DialogTitle>Subscribe</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            To subscribe to this website, please enter your email address here. We
+                            will send updates occasionally.
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                            variant="standard"
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleCloseJob1}>Cancel</Button>
+                        <Button onClick={handleCloseJob1}>Subscribe</Button>
+                    </DialogActions>
+                </Dialog>
             </Container>
         </>
     )

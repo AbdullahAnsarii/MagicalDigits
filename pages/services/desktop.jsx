@@ -15,7 +15,7 @@ const DesktopServices = () => {
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <h5 className={styles.heading}>Desktop Development</h5>
             <h6 className={styles.description}>
-              To understand and meet your requirements, our battle-tested web development team utilises both latest and legacy tools.
+             We've been in the desktop development business for 20 years now, consequently it is our area of expertise.
             </h6>
             <Button href="#getintouch" className={styles.animatedButton} variant="outlined" color="secondary" sx={{ textTransform: 'none', justifySelf: 'center' }}>Get In Touch</Button>
           </Box>
