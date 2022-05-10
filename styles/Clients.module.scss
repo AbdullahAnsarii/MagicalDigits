@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 
 .title,
@@ -15,10 +15,19 @@ $secondary: #FF5D00;
 
 .heading {
   position: absolute;
-  top: 35vw;
-  left: 35vw;
-  font-size: 8vw;
-  color: rgba(255, 93, 0, 0.7);
+  top: 22%;
+  left: 32%;
+  background: -webkit-linear-gradient($secondary, #40AFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 10vw;
+  margin: 0;
+}
+
+.client {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .client:hover {
@@ -36,20 +45,22 @@ $secondary: #FF5D00;
 
   .heading {
     position: absolute;
-    top: 40vw;
-    left: 35vw;
-    font-size: 8vw;
-    color: rgba(255, 93, 0, 0.7);
+    top: 25%;
+    left: 20%;
+    font-size: 15vw;
+    background: -webkit-linear-gradient($secondary, #40AFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
 .stats {
-  font-size: 6vw;
+  font-size: 60px;
   color: $primary;
 }
 
 .stats:hover {
-  font-size: 6vw;
+  font-size: 70px;
   color: $secondary;
 }
 

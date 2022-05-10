@@ -447,7 +447,7 @@ const ContactUs = ({ projectType }) => {
     }
 
     return (
-        <Paper sx={{p:2}} elevation={1}>
+        <Paper sx={{p:2}} elevation={6}>
             <form>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>

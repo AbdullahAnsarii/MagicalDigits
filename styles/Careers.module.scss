@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 
 .title,
@@ -8,22 +8,21 @@ $secondary: #FF5D00;
 }
 
 .description {
-    margin: 1em;
+    margin: 4rem 0;
     line-height: 1.5;
     font-size: 1.5rem;
-    color: black;
-}
-
-.heading {
+  }
+  
+  .heading {
     position: absolute;
-    top: 15vw;
-    left: 35vw;
-    background: -webkit-linear-gradient($primary, #40AFFF);
+    top: 22%;
+    left: 35%;
+    background: -webkit-linear-gradient($secondary, #40AFFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 10vw;
     margin: 0;
-}
+  }
 .heading2 {
     color: $primary;
     font-size: 5vw;
@@ -43,11 +42,18 @@ $secondary: #FF5D00;
 }
 
 @media (max-width: 600px) {
-    .heading {
-        position: absolute;
-        top: 50vw;
-        left: 35vw;
-        font-size: 10vw;
-        color: rgba(255, 93, 0, 0.7);
+    .grid {
+      width: 100%;
+      flex-direction: column;
     }
-}
+  
+    .heading {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      font-size: 15vw;
+      background: -webkit-linear-gradient($secondary, #40AFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }

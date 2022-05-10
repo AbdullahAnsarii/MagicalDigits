@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 .title,
 .heading,
@@ -8,18 +8,14 @@ $secondary: #FF5D00;
 }
 
 .description {
-    // margin: 4rem 0;
-    // line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 2vw;
     margin: 0.5vw;
 }
 
 .heading {
-    // margin: 4rem 0;
-    font-size: 5vw;
+    font-size: 8vw;
     color: $primary;
     margin: 0vw;
-    // letter-spacing: 1.3vw;
 }
 
 .mdLogo {
@@ -28,14 +24,14 @@ $secondary: #FF5D00;
 }
 
 .stats {
-    font-size: 6vw;
-    color: $secondary;
-}
-
-.stats:hover {
-    font-size: 6vw;
+    font-size: 50px;
     color: $primary;
-}
+  }
+  
+  .stats:hover {
+    font-size: 60px;
+    color: $secondary;
+  }
 
 .testimonialsHeading1 {
     color: $primary;
@@ -45,7 +41,7 @@ $secondary: #FF5D00;
 }
 
 .testimonialsHeading2 {
-    background: -webkit-linear-gradient($primary, #40AFFF);
+    background: -webkit-linear-gradient($secondary, #40AFFF);
     // font-family: 'archiabold';
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -92,14 +88,16 @@ $secondary: #FF5D00;
 
 @media (max-width: 600px) {
     .heading {
-        position: absolute;
-        top: 30vw;
-        left: 25vw;
-        font-size: 8vw;
-        color: rgba(255, 93, 0, 0.7);
+        font-size: 12vw;
+        color: $primary;
+        margin: 0vw;
     }
 
     .image {
         width: 100%;
+    }
+    .description {
+        font-size: 5vw;
+        margin: 0.5vw;
     }
 }

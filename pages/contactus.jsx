@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/ContactUs.module.scss'
 import { Container, Box, Grid, List, Divider, ListItem, ListItemText, ListItemIcon } from '@mui/material'
-import { BrowserView, isDesktop, isMobile, MobileView } from 'react-device-detect';
-import { useEffect, useLayoutEffect, useState } from 'react';
 import ContactUs from '../components/ContactUs';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -11,13 +9,10 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 
 const ContactUsPage = () => {
-    const [source, setSource] = useState('');
-    useLayoutEffect(() => {
-        isMobile ? setSource('/contactusmobile.png') : setSource('/contactusdesktop.png')
-    }, [])
     return (
         <>
-            <img src={source} width="100%" />
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/contactusdesktop.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/contactusmobile.png' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Contact Us</title>
@@ -37,7 +32,7 @@ const ContactUsPage = () => {
                         <List>
                             <ListItem>
                                 <ListItemIcon>
-                                    <PhoneIcon fontSize='large' color='primary' />
+                                    <PhoneIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <a href='tel:+922134982756'><ListItemText primary='+92-21-34982756' /></a>
@@ -47,7 +42,7 @@ const ContactUsPage = () => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <MailIcon fontSize='large' color='primary' />
+                                    <MailIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <a target='_blank' href='mailto:info@magicaldigits.com'><ListItemText primary='info@magicaldigits.com' /></a>
@@ -56,7 +51,7 @@ const ContactUsPage = () => {
                             <Divider variant="inset" component="li" />
                             <ListItem>
                                 <ListItemIcon>
-                                    <WhatsAppIcon fontSize='large' color='primary' />
+                                    <WhatsAppIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <a target='_blank' href='https://api.whatsapp.com/send?phone=923222252364'><ListItemText primary='+923222252364' /></a>
@@ -64,7 +59,7 @@ const ContactUsPage = () => {
                             <Divider variant="inset" component="li" />
                             <ListItem>
                                 <ListItemIcon>
-                                    <LocationOnIcon fontSize='large' color='primary' />
+                                    <LocationOnIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Suite # 205, Gulshan Trade Center Block 5
@@ -79,7 +74,7 @@ const ContactUsPage = () => {
                 </h6>
                 <Box className={styles.mapouter}>
                     <div className={styles.gmap_canvas}>
-                        <iframe className={styles.gmap_iframe} width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Magical Digits&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        <iframe className={styles.gmap_iframe} width="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Magical Digits&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                     </div>
                 </Box>
 

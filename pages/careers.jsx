@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Careers.module.scss'
 import { Container, Box, Grid, List, Divider, ListItem, ListItemText, ListItemIcon, Button, Paper, Chip, TextField } from '@mui/material'
-import { BrowserView, isDesktop, isMobile, MobileView } from 'react-device-detect';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -17,7 +16,7 @@ import WorkIcon from '@mui/icons-material/Work';
 
 export const getStaticProps = () => {
     const jobs = [
-        { title: 'Junior Software Engineer', closes: '2022-05-15', positions: 1 },
+        { title: 'Junior Software Engineer', closes: '2022-05-20', positions: 1 },
         { title: 'Associate Software Engineer', closes: '2022-06-30', positions: 4 },
         { title: 'Junior Mobile Developer', closes: '2022-05-25', positions: 1 },
         { title: 'Associate Test Engineer', closes: '2022-04-18', positions: 2 }
@@ -30,13 +29,8 @@ export const getStaticProps = () => {
 }
 
 const Careers = ({ jobs }) => {
-    const [source, setSource] = useState('');
     const [searchText, setSearchText] = useState('');
     const [showResult, setShowResult] = useState(jobs);
-
-    useLayoutEffect(() => {
-        isMobile ? setSource('/careersmobile.png') : setSource('/careersdesktop.png');
-    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,7 +41,8 @@ const Careers = ({ jobs }) => {
 
     return (
         <>
-            <img src={source} width="100%" />
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/careersdesktop.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/careersmobile.png' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Careers</title>
@@ -57,7 +52,7 @@ const Careers = ({ jobs }) => {
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
                     <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" />
                 </Head>
-                <h1 className={styles.heading}>Careers.</h1>
+                <h1 className={styles.heading}>Careers</h1>
                 <h6 className={styles.description}>We only work with the finest, for the finest.</h6>
                 <Box sx={{ textAlign: 'center' }}><Button
                     key='Contact us'
@@ -76,7 +71,7 @@ const Careers = ({ jobs }) => {
                         <List>
                             <ListItem>
                                 <ListItemIcon>
-                                    <PaidIcon fontSize='large' color='primary' />
+                                    <PaidIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Market leading salary.' />
@@ -86,7 +81,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <AccessTimeIcon fontSize='large' color='primary' />
+                                    <AccessTimeIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Flexible working hours.' />
@@ -96,7 +91,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <AutoGraphIcon fontSize='large' color='primary' />
+                                    <AutoGraphIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Exponential growth in both salary and rank.' />
@@ -106,7 +101,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <DirectionsCarIcon fontSize='large' color='primary' />
+                                    <DirectionsCarIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Conveyance allowance.' />
@@ -116,7 +111,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <CardGiftcardIcon fontSize='large' color='primary' />
+                                    <CardGiftcardIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Performance bonuses.' />
@@ -130,7 +125,7 @@ const Careers = ({ jobs }) => {
                             <Divider sx={{ display: { md: 'none' } }} variant="inset" component="li" />
                             <ListItem>
                                 <ListItemIcon>
-                                    <CalendarMonthIcon fontSize='large' color='primary' />
+                                    <CalendarMonthIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Paid leaves.' />
@@ -140,7 +135,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <SportsEsportsIcon fontSize='large' color='primary' />
+                                    <SportsEsportsIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Recreational activities to boost productivity.' />
@@ -149,7 +144,7 @@ const Careers = ({ jobs }) => {
                             <Divider variant="inset" component="li" />
                             <ListItem>
                                 <ListItemIcon>
-                                    <FitnessCenterIcon fontSize='large' color='primary' />
+                                    <FitnessCenterIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='In-house fitness gym.' />
@@ -159,7 +154,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <MoneyIcon fontSize='large' color='primary' />
+                                    <MoneyIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Leave encashments.' />
@@ -169,7 +164,7 @@ const Careers = ({ jobs }) => {
 
                             <ListItem>
                                 <ListItemIcon>
-                                    <GroupsIcon fontSize='large' color='primary' />
+                                    <GroupsIcon fontSize='large' color='secondary' />
                                 </ListItemIcon>
 
                                 <ListItemText primary='Friendly working environment.' />
@@ -197,9 +192,9 @@ const Careers = ({ jobs }) => {
                                 <h3>{job.title}</h3>
                                 <Chip size="small" label={`${job.positions} ${job.positions > 1 ? 'Positions' : 'Position'}`} color='secondary' />
                                 <p>Karachi, <img src='https://flagcdn.com/w20/pk.png' /></p>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}><WorkIcon fontSize='small' color='primary' />&nbsp;<span>Permanent</span></Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}><WorkIcon fontSize='small' color='secondary' />&nbsp;<span>Permanent</span></Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <AccessTimeIcon fontSize='small' color='primary' />&nbsp;
+                                    <AccessTimeIcon fontSize='small' color='secondary' />&nbsp;
                                     {new Date(job.closes) > new Date() ? <span>Applications closing on {`${(new Date(job.closes)).getDate()}/${(new Date(job.closes)).getMonth() + 1}/${(new Date(job.closes)).getFullYear()}`}
                                     </span> : <span>Applications closed for this position</span>}
                                 </Box>
