@@ -82,7 +82,7 @@ const NavBar = () => {
   };
   const list = (anchor) => (
     <Box
-      sx={{ width: { xs: '50vw', md: '20vw' } }}
+      sx={{ width: { xs: '60vw', md: '20vw' } }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}

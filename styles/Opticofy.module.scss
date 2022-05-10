@@ -1,5 +1,5 @@
-$primary: #00478F;
-$secondary: #FF5D00;
+$primary: #000;
+$secondary: #00478F;
 
 .title,
 .heading,
@@ -16,31 +16,40 @@ $secondary: #FF5D00;
 
 .heading {
     // margin: 4rem 0;
-    font-size: 5vw;
+    font-size: 8vw;
     color: $primary;
     margin: 0.5vw;
 }
 
 .image {
-    width: 50%;
+    width: 100%;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
 }
 
-.features {
-    // list-style: none;
+.animatedButton {
+    display: flex;
+    text-transform: none !important;
+    font-size: 16px !important;
+}
+
+.animatedButton:hover {
+    background-color: $secondary !important;
+    color: #fff;
+    text-decoration: none;
 }
 
 @media (max-width: 600px) {
     .heading {
-        position: absolute;
+        // position: absolute;
         top: 30vw;
         left: 25vw;
-        font-size: 8vw;
-        color: rgba(255, 93, 0, 0.7);
+        font-size: 10vw;
+        color: $primary;
     }
 
     .image {
         width: 100%;
+        height: 100%;
     }
 }
