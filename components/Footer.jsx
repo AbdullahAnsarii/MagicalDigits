@@ -8,6 +8,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Box } from '@mui/material';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -16,6 +17,7 @@ const Footer = () => {
                 
                 <Image src='/mdlogo.png' width='100%' height='60%' />
                 <p>&copy; {(new Date()).getFullYear()} Magical Digits. All rights reserved.</p>
+                
                 <Box>
                     <a target='__blank' href='https://www.facebook.com/MagicalDigitsPakistan/'>
                         <FacebookIcon sx={{color: '#3b5998'}} className={styles.icon} />
@@ -27,25 +29,22 @@ const Footer = () => {
                         <GitHubIcon sx={{color: '#171515'}} className={styles.icon} />
                     </a>
                 </Box>
+                <p>Designed and developed by <Link href='http://localhost:3000/about-us/our-team#abdullahansari'>Abdullah Ansari</Link></p>
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
             <ul className={styles.iconList} >
-                <h3>Sitemap</h3>
+                <h3>Quick Links</h3>
                     <li className={styles.iconListItem}>
-                        <a href='/products'><ArrowRightIcon className={styles.icon} />Product</a>
+                        <a href='/products/opticofy'><ArrowRightIcon className={styles.icon} />Opticofy</a>
                     </li>
 
                     <li className={styles.iconListItem}>
-                        <a href='/services'><ArrowRightIcon className={styles.icon} />Services</a>
+                        <a href='/about-us/our-story'><ArrowRightIcon className={styles.icon} />Our Story</a>
                     </li>
 
                     <li className={styles.iconListItem}>
-                        <a href='/partners'><ArrowRightIcon className={styles.icon} />Partners</a>
-                    </li>
-
-                    <li className={styles.iconListItem}>
-                        <a href='/aboutus'><ArrowRightIcon className={styles.icon} />About Us</a>
+                        <a href='/about-us/our-team'><ArrowRightIcon className={styles.icon} />Our Team</a>
                     </li>
 
                     <li className={styles.iconListItem}>
@@ -57,10 +56,10 @@ const Footer = () => {
                     </li>
                 </ul>
             </Box>
-
-            <Box>
+       
+            <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                 <ul className={styles.iconList}>
-                <h3>Contact Us</h3>
+                <h3>Connect With Us</h3>
                     <li className={styles.iconListItem}>
                         <LocationOnIcon className={styles.icon} />
                         <span>Suite # 205, Gulshan Trade Center Block 5

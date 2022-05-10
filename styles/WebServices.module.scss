@@ -1,0 +1,124 @@
+$primary: #000;
+$secondary: #00478F;
+
+.title,
+.heading,
+.description {
+    text-align: center;
+}
+
+.description {
+    // margin: 4rem 0;
+    line-height: 1.5;
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.heading {
+    background: -webkit-linear-gradient($secondary, #40AFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4vw;
+    margin: 0;
+}
+
+.image {
+    width: 100%;
+}
+
+.logo {
+    filter: grayscale(100%);
+}
+
+.logo:hover {
+    filter: grayscale(0);
+}
+
+.logoHeading {
+    font-size: 2vw;
+    text-align: left;
+    color: $primary;
+}
+
+.animatedButton {
+    display: flex;
+    text-transform: none !important;
+    font-size: 16px !important;
+    width: 50%;
+    left: 25%;
+}
+
+.animatedButton:hover {
+    background-color: $secondary  !important;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .heading {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        font-size: 8vw;
+        transform: translate(-50%, -50%);
+        background: -webkit-linear-gradient($secondary, #40AFFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .description {
+        position: absolute;
+        top: 30%;
+        left: 2%;
+        left: 2vw;
+        font-size: 3vw;
+        // color: black;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .animatedButton {
+        position: absolute;
+        top: -250%;
+        width: 50%;
+        left: 25%;
+        text-transform: none !important;
+        font-size: 3vw !important;
+    }
+}
+@media (max-width: 350px) {
+    .heading {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        font-size: 6vw;
+        transform: translate(-50%, -50%);
+        background: -webkit-linear-gradient($secondary, #40AFFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .description {
+        position: absolute;
+        top: 24%;
+        left: 2%;
+        left: 2vw;
+        font-size: 3vw;
+        // color: black;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .animatedButton {
+        position: absolute;
+        top: -250%;
+        width: 50%;
+        left: 25%;
+        text-transform: none !important;
+        font-size: 3vw !important;
+    }
+}

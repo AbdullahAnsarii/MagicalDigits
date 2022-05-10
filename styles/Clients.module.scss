@@ -1,0 +1,71 @@
+$primary: #000;
+$secondary: #00478F;
+
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.heading {
+  position: absolute;
+  top: 22%;
+  left: 32%;
+  background: -webkit-linear-gradient($secondary, #40AFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 10vw;
+  margin: 0;
+}
+
+.client {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.client:hover {
+  padding: 0.5vw;
+  transform: scale(1.15);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition: 0.4s;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .heading {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    font-size: 15vw;
+    background: -webkit-linear-gradient($secondary, #40AFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.stats {
+  font-size: 60px;
+  color: $primary;
+}
+
+.stats:hover {
+  font-size: 70px;
+  color: $secondary;
+}
+
+.image {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
