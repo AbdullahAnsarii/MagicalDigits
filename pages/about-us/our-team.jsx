@@ -150,7 +150,7 @@ const OurTeam = () => {
                                 component="img"
                                 width='100%'
                                 height='400px'
-                                image="/staff/aaa.png"
+                                image="/staff/aaaa.png"
                                 alt="Abdullah Ansari"
                             />
                             <CardContent sx={{ textAlign: 'center' }}>

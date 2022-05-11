@@ -1,6 +1,7 @@
 import { Box, Button, MenuItem, Paper, Select, TextField, InputLabel, FormControl, Autocomplete } from "@mui/material";
 import { useState } from "react";
 import styles from '../styles/Navbar.module.scss';
+import { postMessage } from "../utility/message";
 
 const ContactUs = ({ projectType }) => {
     const countries = [
@@ -445,6 +446,11 @@ const ContactUs = ({ projectType }) => {
             phoneNo: values ? `+${values.phone}` : ''
         })
     }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        await postMessage(formValues.firstName, formValues.lastName, formValues.email, formValues.company, formValues.projectDetails, formValues.projectType, formValues.country, formValues.phoneNo);
+
+    }
 
     return (
         <Paper sx={{p:2}} elevation={6}>
@@ -534,6 +540,7 @@ const ContactUs = ({ projectType }) => {
                         type="submit"
                         variant="outlined"
                         color="secondary"
+                        onClick={handleSubmit}
                         className={styles.animatedButton}>Submit</Button>
                 </Box>
 
