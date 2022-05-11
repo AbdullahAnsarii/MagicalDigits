@@ -1,9 +1,12 @@
 import { db } from "./firebase";
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 
+
 const messagesRef = collection(db, 'messages');
 
-const postMessage = async (firstname, lastname, email, company, description, projectType, country, contactNo) => {
+
+const postMessage = async (dispatchMakeTrue, firstname, lastname, email, company, description, projectType, country, contactNo) => {
+  
   addDoc(messagesRef, {
     FirstName: firstname,
     LastName: lastname,
@@ -13,6 +16,8 @@ const postMessage = async (firstname, lastname, email, company, description, pro
     ProjectType: projectType,
     Company: company,
     Description: description
+  }).then(() => {
+      dispatchMakeTrue
   })
 };
 

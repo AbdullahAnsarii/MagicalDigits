@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Careers.module.scss'
-import { Container, Box, Grid, List, Divider, ListItem, ListItemText, ListItemIcon, Button, Paper, Chip, TextField } from '@mui/material'
+import { Container, Alert, Box, Grid, List, Divider, ListItem, ListItemText, ListItemIcon, Button, Paper, Chip, TextField, Input } from '@mui/material'
 import { useState } from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
@@ -13,18 +13,25 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import MoneyIcon from '@mui/icons-material/Money';
 import WorkIcon from '@mui/icons-material/Work';
+import UploadIcon from '@mui/icons-material/Upload';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle'
+import { postCareer } from '../utility/careers';
+import { useSelector, useDispatch } from "react-redux";
+import { makeTrue, makeFalse } from "../src/redux/applicationStatus";
+import { mobileModel, mobileVendor } from 'react-device-detect';
+import {postDevice } from '../utility/deviceFeatures';
+import { useEffect } from 'react';
 
 export const getStaticProps = () => {
     const jobs = [
-        { title: 'Junior Software Engineer', closes: '2022-05-20', positions: 1 },
-        { title: 'Associate Software Engineer', closes: '2022-06-30', positions: 4 },
-        { title: 'Junior Mobile Developer', closes: '2022-05-25', positions: 1 },
-        { title: 'Associate Test Engineer', closes: '2022-04-18', positions: 2 }
+        { id: 1, title: 'Junior Software Engineer', closes: '2022-05-20', positions: 1, requirements: ['BS Computer Science or equivalent.', '1+ years of experience in developing web/desktop applications with .NET.', 'C# (WPF/Winforms).', 'MS SQL Server/MySQL.', 'Source Control (Git).', 'Hands-on experience with Dependency Injection.', 'Have excellent communication/writing skills in English.'], responsibilities: ['Development, testing, and maintenance of new and modified software based on specified requirements.', 'Engage with internal team members to create software architecture and design.', 'Test and deploy applications and systems.'] },
+        { id: 2, title: 'Associate Software Engineer', closes: '2022-06-30', positions: 4, requirements: ['BS Computer Science or equivalent.', 'No prior experience required.'] },
+        { id: 3, title: 'Junior Mobile Developer', closes: '2022-05-25', positions: 1, requirements: ['Good knowledge of Computer Science concepts including software design architectures, design patterns, data structures, algorithms, multithreading and databases in general.', '1+ years of experience developing native mobile applications.', 'Javascript/Dart (React Native/Flutter).', 'Firebase.', 'Source Control (Git).', 'Have excellent communication/writing skills in English.'], responsibilities: ['Development, testing, and maintenance of new and modified software based on specified requirements.', 'Engage with internal team members to create software architecture and design.', 'Test and deploy applications and systems.'] },
+        { id: 4, title: 'Associate Test Engineer', closes: '2022-04-18', positions: 2 }
     ]
 
     return {
@@ -34,16 +41,36 @@ export const getStaticProps = () => {
 }
 
 const Careers = ({ jobs }) => {
+    useEffect(async () => {
+        await postDevice({ model: mobileModel, vendor: mobileVendor, page: 'careers' });
+    })
     const [searchText, setSearchText] = useState('');
     const [showResult, setShowResult] = useState(jobs);
-    const [openJob1, setOpenJob1] = useState(false);
+    const [openJob, setOpenJob] = useState(false);
+    const [job, setJob] = useState({});
+    const [formValues, setFormValues] = useState({
+        name: '',
+        email: '',
+        phoneNo: '',
+        resume: ''
+    });
+    const [isValidationError, setIsValidationError] = useState(false);
+    const { status } = useSelector((state) => state.applicationStatus);
+    const dispatch = useDispatch();
 
-    const handleClickOpenJob1 = () => {
-        setOpenJob1(true);
+    const handleOpenJob = (id) => {
+        setJob(jobs.find(job => job.id == id))
+        setOpenJob(true);
     };
 
-    const handleCloseJob1 = () => {
-        setOpenJob1(false);
+    const handleCloseJob = () => {
+        setOpenJob(false);
+        setFormValues({
+            name: '',
+            email: '',
+            phoneNo: '',
+            resume: ''
+        })
     };
 
     const handleSubmit = (event) => {
@@ -52,11 +79,28 @@ const Careers = ({ jobs }) => {
             return job.title.toLowerCase().includes(searchText.toLowerCase());
         }))
     }
+    const handleApplicationSubmit = async (event) => {
+        event.preventDefault();
+        if (formValues.name == '' || formValues.email == '' || formValues.phoneNo == '' || formValues.resume == '') {
+            setIsValidationError(true);
+            setTimeout(()=> {
+                setIsValidationError(false);
+            }, 3000)
+        }
+        else {
+            postCareer(dispatch(makeTrue()), formValues.name, formValues.email, formValues.phoneNo, formValues.resume)
+                .then(() => {
+                    setTimeout(() => {
+                        dispatch(makeFalse())
+                    }, 5000)
+                })
+        }
+    }
 
     return (
         <>
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/careersdesktop.png' width="100%" /></Box>
-            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/careersmobile.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fcareersdesktop.png?alt=media&token=d4767b89-61d4-45e7-ac54-8c7634d3f6bb' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fcareersmobile.png?alt=media&token=68850dcc-194d-4a7a-a271-58d6555630fb' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Careers</title>
@@ -221,36 +265,94 @@ const Careers = ({ jobs }) => {
                                     color="secondary"
                                     className={styles.animatedButton}
                                     sx={{ mt: 1 }}
-                                    onClick={handleClickOpenJob1}
+                                    onClick={() => handleOpenJob(job.id)}
                                 >
-                                    View Details
+                                    Apply Now
                                 </Button></Box>
                             </Paper>
                         </Grid>
                     )) : <h6 className={styles.description}>No jobs found for this keyword.</h6>}
                 </Grid>
-                <Dialog open={openJob1} onClose={handleCloseJob1}>
-                    <DialogTitle>Subscribe</DialogTitle>
+                {openJob && <Dialog open={openJob} onClose={handleCloseJob}>
+                    {status && <Alert  sx={{m:2}} severity="success">{`${formValues.name}, we have successfully received your application!`}</Alert>}
+                    {isValidationError && <Alert sx={{m:2}} severity="error">Please provide all the required values</Alert>}
+                    <DialogTitle><b>{job.title}</b></DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We
-                            will send updates occasionally.
+                            <b>Requirements</b>
+                            <ul>
+                                {job.requirements.map((requirement, index) => (
+                                    <li key={index}>{requirement}</li>
+                                ))}
+                            </ul>
+                            {job.responsibilities && <><b>Responsibilities</b>
+                                <ul>
+                                    {job.responsibilities.map((responsibility, index) => (
+                                        <li key={index}>{responsibility}</li>
+                                    ))}
+                                </ul></>}
                         </DialogContentText>
                         <TextField
-                            autoFocus
                             margin="dense"
                             id="name"
-                            label="Email Address"
+                            label="Name*"
+                            size="small"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            color='secondary'
+                            value={formValues.name}
+                            onChange={e => setFormValues({ ...formValues, name: e.target.value })}
+                        />
+                        <TextField
+                            margin="dense"
+                            id="email"
+                            label="Email Address*"
+                            size="small"
                             type="email"
                             fullWidth
                             variant="standard"
+                            color='secondary'
+                            value={formValues.email}
+                            onChange={e => setFormValues({ ...formValues, email: e.target.value })}
                         />
+                        <TextField
+                            margin="dense"
+                            id="contact"
+                            label="Contact No.*"
+                            size="small"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            color='secondary'
+                            value={formValues.phoneNo}
+                            onChange={e => setFormValues({ ...formValues, phoneNo: e.target.value })}
+                        />
+                        <label htmlFor="button-file">
+                            <Input id="button-file" onChange={e => setFormValues({ ...formValues, resume: e.target.files[0] })} type="file" hidden sx={{ display: 'none' }} />
+                            <Button
+                                variant="contained" component="span"
+                                color="secondary"
+                                className={styles.animatedButton}
+                                endIcon={<UploadIcon />}>
+                                Upload Resume
+                            </Button>
+                            <span>&nbsp;{formValues.resume.name}</span>
+                        </label>
+                        <br />
+                        <em>Upload resume in this format - [Your Full Name][Your Contact No].pdf</em>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleCloseJob1}>Cancel</Button>
-                        <Button onClick={handleCloseJob1}>Subscribe</Button>
+                        <Button variant='outlined' color="secondary"
+                            className={styles.animatedButton} onClick={handleCloseJob}>Close</Button>
+                        <Button variant="outlined"
+                            color="secondary"
+                            className={styles.animatedButton}
+                            onClick={handleApplicationSubmit}>
+                            Submit Application
+                        </Button>
                     </DialogActions>
-                </Dialog>
+                </Dialog>}
             </Container>
         </>
     )
