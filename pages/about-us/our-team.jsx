@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../../styles/OurTeam.module.scss'
-import { Container, Box, Grid, List, Divider, ListItem, ListItemText, ListItemIcon, Button, Stack } from '@mui/material'
-import { BrowserView, isDesktop, isMobile, MobileView } from 'react-device-detect';
+import { Container, Box, Grid, Stack } from '@mui/material'
+import { mobileModel, mobileVendor } from 'react-device-detect';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,12 +10,17 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
+import { postDevice } from '../../utility/deviceFeatures';
+import { useEffect } from 'react';
 
 const OurTeam = () => {
+    useEffect(async () => {
+        await postDevice({ model: mobileModel, vendor: mobileVendor, page: 'our-team' });
+    })
     return (
         <>
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/ourteamdesktop.png' width="100%" /></Box>
-            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/ourteammobile.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fourteamdesktop.png?alt=media&token=b17ae8a1-0a27-401b-8508-3a98b714d9a6' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fourteammobile.png?alt=media&token=f26dc718-f38a-4ebc-99ba-8b8f4eb13f2e' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Our Team</title>
@@ -38,7 +43,7 @@ const OurTeam = () => {
                 </h6>
                 <Grid container sx={{ my: 2 }}>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m: 1}}>
+                        <Card elevation={4} sx={{ m: 1 }}>
                             <CardMedia
                                 className={styles.img}
                                 component="img"
@@ -63,7 +68,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}}>
+                        <Card elevation={4} sx={{ m: 1 }}>
                             <CardMedia
                                 className={styles.img}
                                 component="img"
@@ -94,7 +99,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}}>
+                        <Card elevation={4} sx={{ m: 1 }}>
                             <CardMedia
                                 className={styles.img}
                                 component="img"
@@ -119,7 +124,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}}>
+                        <Card elevation={4} sx={{ m: 1 }}>
                             <CardMedia
                                 className={styles.img}
                                 component="img"
@@ -144,7 +149,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}} id='abdullahansari'>
+                        <Card elevation={4} sx={{ m: 1 }} id='abdullahansari'>
                             <CardMedia
                                 className={styles.img}
                                 component="img"
@@ -175,7 +180,7 @@ const OurTeam = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card elevation={4} sx={{m:1}}>
+                        <Card elevation={4} sx={{ m: 1 }}>
                             <CardMedia
                                 className={styles.img}
                                 component="img"

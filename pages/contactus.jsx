@@ -11,8 +11,8 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 const ContactUsPage = () => {
     return (
         <>
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/contactusdesktop.png' width="100%" /></Box>
-            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/contactusmobile.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fcontactusdesktop.png?alt=media&token=7a397b81-3fff-4aa0-a7a8-db55a2360c26' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fcontactusmobile.png?alt=media&token=577ecb15-02b7-44e3-8ac0-bf82c7d1469f' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Contact Us</title>

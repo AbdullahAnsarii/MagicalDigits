@@ -101,7 +101,7 @@ const OurStory = () => {
             <Grid container spacing={1} sx={{ alignItems: 'center', py: 3, justifyContent: 'center' }}>
                 <Grid item xs={12} md={5}>
                     <Slide direction='up' triggerOnce fraction='0.5'>
-                        <img src='/Ma.png' width='100%' className={styles.mdLogo} />
+                        <img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2FMa.png?alt=media&token=bcb62aef-cf2c-41c5-be9d-60d7f7fad6b0' width='100%' className={styles.mdLogo} />
                     </Slide>
                 </Grid>
                 <Grid item xs={12} md={7} >

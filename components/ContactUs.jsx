@@ -1,8 +1,13 @@
-import { Box, Button, MenuItem, Paper, Select, TextField, InputLabel, FormControl, Autocomplete } from "@mui/material";
+import { Box, Button, MenuItem, Paper, Select, TextField, InputLabel, FormControl, Autocomplete, Alert } from "@mui/material";
 import { useState } from "react";
 import styles from '../styles/Navbar.module.scss';
+import { postMessage } from "../utility/message";
+import { useSelector, useDispatch } from "react-redux";
+import { makeTrue, makeFalse } from "../src/redux/dbStatus";
 
 const ContactUs = ({ projectType }) => {
+    const { status } = useSelector((state) => state.dbStatus);
+    const dispatch = useDispatch();
     const countries = [
         { code: 'AD', label: 'Andorra', phone: '376' },
         {
@@ -438,6 +443,8 @@ const ContactUs = ({ projectType }) => {
         country: '',
         phoneNo: ''
     })
+    const [isValidationError, setIsValidationError] = useState(false);
+
     const handleCountryChange = (event, values) => {
         setFormValues({
             ...formValues,
@@ -445,9 +452,29 @@ const ContactUs = ({ projectType }) => {
             phoneNo: values ? `+${values.phone}` : ''
         })
     }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if ( formValues.firstName == '' || formValues.lastName == '' || formValues.company == '' || formValues.projectType == '' || formValues.country == '' || formValues.phoneNo == '') {
+            setIsValidationError(true);
+            setTimeout(() => {
+                setIsValidationError(false);
+            }, 3000)
+        }
+        else {
+            postMessage(dispatch(makeTrue()), formValues.firstName, formValues.lastName, formValues.email, formValues.company, formValues.projectDetails, formValues.projectType, formValues.country, formValues.phoneNo)
+                .then(() => {
+                    setTimeout(() => {
+                        dispatch(makeFalse())
+                    }, 5000)
+                })
+        }
+        //I could add .then here rather than passing dispatch as params
+    }
 
     return (
-        <Paper sx={{p:2}} elevation={6}>
+        <Paper sx={{ p: 2 }} elevation={6}>
+            {status && <Alert severity="success">Your details & message has been shared successfully with us!</Alert>}
+            {isValidationError && <Alert severity="error">Please provide all the required values</Alert>}
             <form>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -534,6 +561,7 @@ const ContactUs = ({ projectType }) => {
                         type="submit"
                         variant="outlined"
                         color="secondary"
+                        onClick={handleSubmit}
                         className={styles.animatedButton}>Submit</Button>
                 </Box>
 

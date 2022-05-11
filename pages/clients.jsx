@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Clients.module.scss'
-import Image from 'next/image'
-import { Container, Box, Tabs, Tab, TabPanel, Grid, Paper, Stack } from '@mui/material'
+import { Container, Box, Tabs, Tab, Grid, Paper, Stack } from '@mui/material'
 import { useState } from 'react'
 import LoadingComponent from '../components/LoadingComponent'
 
@@ -42,8 +41,8 @@ const Clients = ({ webClients }) => {
     }
     return (
         <>
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='/clientsdesktop.png' width="100%" /></Box>
-            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='/clientsmobile.png' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fclientsdesktop.png?alt=media&token=24611f00-e3f4-456f-8653-4d7d5b6616a1' width="100%" /></Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}><img src='https://firebasestorage.googleapis.com/v0/b/magicaldigits-web.appspot.com/o/home%2Fclientsmobile.png?alt=media&token=ff244c1b-54ac-4be8-a987-21e48613a1a8' width="100%" /></Box>
             <Container maxWidth="lg">
                 <Head>
                     <title>Clients</title>

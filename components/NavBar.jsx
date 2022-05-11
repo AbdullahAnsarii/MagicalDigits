@@ -10,7 +10,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from '../styles/Navbar.module.scss'
 import Chip from '@mui/material/Chip';
@@ -21,8 +20,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import HomeIcon from '@mui/icons-material/Home';
 import CategoryIcon from '@mui/icons-material/Category';
 import BuildIcon from '@mui/icons-material/Build';
@@ -30,15 +27,15 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import InfoIcon from '@mui/icons-material/Info';
 import WorkIcon from '@mui/icons-material/Work';
 import PhoneIcon from '@mui/icons-material/Phone';
-import CloseIcon from '@mui/icons-material/Close';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Script from 'next/script';
 
 
 
 const NavBar = () => {
   const router = useRouter()
   const theme = useTheme();
-  console.log(theme);
 
   const [padding, setPadding] = useState("10px");
   const [fontSize, setFontSize] = useState("1em");
@@ -88,7 +85,7 @@ const NavBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-      <Divider />
+        <Divider />
         <ListItem button onClick={() => router.push('/').then(() => setDrawer(false))}
           sx={{ textTransform: 'none', fontSize: fontSize }}>
           <ListItemIcon>
@@ -142,7 +139,7 @@ const NavBar = () => {
           aria-haspopup="true"
           aria-expanded={openAboutUs ? 'true' : undefined}
           onClick={handleAboutUsClick}
-          sx={{ textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap'  }}>
+          sx={{ textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap' }}>
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>
@@ -159,17 +156,17 @@ const NavBar = () => {
           <ListItemText primary='Careers' />
         </ListItem>
         <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center' }}>
-            <Button
-              key='Contact us'
-              href='/contactus'
-              variant="outlined"
-              color="secondary"
-              className={styles.animatedButton}
-              endIcon={<PhoneIcon />}
-            >
-              Contact us
-            </Button>
-          </Box>
+          <Button
+            key='Contact us'
+            href='/contactus'
+            variant="outlined"
+            color="secondary"
+            className={styles.animatedButton}
+            endIcon={<PhoneIcon />}
+          >
+            Contact us
+          </Button>
+        </Box>
       </List>
     </Box>
   );
@@ -177,13 +174,13 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 10;
-      if (show) {
+      if (window.scrollY > 1) {
         setPadding("0px");
         setFontSize("0.9em");
         setImageWidth("40vh");
         setImageHeight("20vh");
-      } else {
+      }
+      else {
         setPadding("10px");
         setFontSize("1em");
         setImageWidth("60vh");
@@ -198,11 +195,29 @@ const NavBar = () => {
   }, []);
 
   return (
+
     <AppBar position="sticky" sx={{
       padding: padding,
       transition: '0.8s',
       backgroundColor: '#f3f3f3bf'
     }}>
+      <Head>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+        />
+
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+                `}
+        </Script>
+      </Head>
       <Container maxWidth="xl">
         <Toolbar className={styles.navbar} disableGutters>
           {/* desktop */}
@@ -289,8 +304,8 @@ const NavBar = () => {
             </Box>
           </Link>
           <IconButton
-          sx={{ display: { xs: 'flex', md: 'none' }}}
-          color='primary'
+            sx={{ display: { xs: 'flex', md: 'none' } }}
+            color='primary'
             size="large"
             aria-label="account of current user"
             aria-controls="menu-appbar"
@@ -312,7 +327,7 @@ const NavBar = () => {
         </Toolbar>
 
 
-{/* Drawer dropdowns begin here */}
+        {/* Drawer dropdowns begin here */}
 
         <Menu
           sx={{ ml: 1 }}
@@ -327,10 +342,10 @@ const NavBar = () => {
           <Button
             onClick={() => {
               router.push("/products/opticofy")
-              .then(() => {
-                setDrawer(false);
-                handleProductsClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleProductsClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap' }} >
             Opticofy&nbsp;<Chip size="small" label="featured" color="secondary" />
@@ -338,47 +353,47 @@ const NavBar = () => {
           <Button
             onClick={() => {
               router.push("/products/md-gl")
-              .then(() => {
-                setDrawer(false);
-                handleProductsClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleProductsClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             MD-GL &copy;</Button>
           <Button
             onClick={() => {
               router.push('/products/md-ic')
-              .then(() => {
-                setDrawer(false);
-                handleProductsClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleProductsClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             MD-IC &copy;</Button>
           <Button
             onClick={() => {
               router.push('/products/md-ai')
-              .then(() => {
-                setDrawer(false);
-                handleProductsClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleProductsClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             MD-AI &copy;</Button>
           <Button
             onClick={() => {
               router.push('/products/md-cis')
-              .then(() => {
-                setDrawer(false);
-                handleProductsClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleProductsClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             MD-CIS &copy;</Button>
         </Menu>
 
         <Menu
-         sx={{ ml: 1 }}
+          sx={{ ml: 1 }}
           id="basic-menu2"
           anchorEl={anchorServices}
           open={openServices}
@@ -389,30 +404,30 @@ const NavBar = () => {
           <Button
             onClick={() => {
               router.push("/services/web")
-              .then(() => {
-                setDrawer(false);
-                handleServicesClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleServicesClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             Web Development</Button>
           <Button
             onClick={() => {
               router.push('/services/desktop')
-              .then(() => {
-                setDrawer(false);
-                handleServicesClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleServicesClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             Desktop Development</Button>
           <Button
             onClick={() => {
               router.push('/services/digitaldesign')
-              .then(() => {
-                setDrawer(false);
-                handleServicesClose();
-              })
+                .then(() => {
+                  setDrawer(false);
+                  handleServicesClose();
+                })
             }}
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}>
             Digital Design</Button>
@@ -420,16 +435,16 @@ const NavBar = () => {
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize, whiteSpace: 'nowrap' }}
             onClick={() => {
               router.push("/services/mobile")
-              .then(() => {
-                setDrawer(false);
-                handleServicesClose();
-              })
-              }}>
+                .then(() => {
+                  setDrawer(false);
+                  handleServicesClose();
+                })
+            }}>
             Mobile Development&nbsp;<Chip size="small" label="new" color="secondary" /></Button>
         </Menu>
 
         <Menu
-         sx={{ ml: 1 }}
+          sx={{ ml: 1 }}
           id="basic-menu3"
           anchorEl={anchorAboutUs}
           open={openAboutUs}
@@ -442,20 +457,21 @@ const NavBar = () => {
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}
             onClick={() => {
               router.push("/about-us/our-story")
-              .then(() => {
-                setDrawer(false);
-                handleAboutUsClose();
-              })
-              }}>
+                .then(() => {
+                  setDrawer(false);
+                  handleAboutUsClose();
+                })
+            }}>
             About Magical Digits</Button>
           <Button
             sx={{ display: 'flex', textTransform: 'none', fontSize: fontSize }}
             onClick={() => {
               router.push('/about-us/our-team')
-              .then(() => {
-                setDrawer(false);
-                handleAboutUsClose();
-              })}}>
+                .then(() => {
+                  setDrawer(false);
+                  handleAboutUsClose();
+                })
+            }}>
             Our Team</Button>
         </Menu>
 
