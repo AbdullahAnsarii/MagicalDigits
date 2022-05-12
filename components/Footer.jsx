@@ -29,7 +29,7 @@ const Footer = () => {
                         <GitHubIcon sx={{color: '#171515'}} className={styles.icon} />
                     </a>
                 </Box>
-                <p>Designed and developed by <u><Link href='http://localhost:3000/about-us/our-team#abdullahansari'>Abdullah Ansari</Link></u></p>
+                <p>Designed and developed by <Link href='/about-us/our-team#abdullahansari'>Abdullah Ansari</Link></p>
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
